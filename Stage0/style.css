@@ -1,0 +1,28 @@
+h1 {
+   color : blue;
+   font-family : "Tahoma";
+   font-size :  16;
+   text-align : center;
+   text-decoration : bold;
+}
+
+h2 {
+   color : darkblue;
+   font-family: "Tahoma";
+   font-size : 14;
+   text-align : left-side;
+   text-decoration : bold;
+}
+
+h3 {
+   color : darkred;
+   font-family : "Tahoma";
+   font-size : 10;
+   text-align : left-side;
+}
+
+p {
+   color : black;
+   font-family : "Tahoma";
+   font-size : 10;
+}
