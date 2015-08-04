@@ -103,7 +103,7 @@ img {
    display: flex;
    background-color: #D6D4D4;
    padding: 10px;
-   flex-flow: row || nowrap;
+   flex-flow: row nowrap;
    justify-content: flex-start;
 }
 
@@ -135,7 +135,7 @@ table, td, th {
 }
 
 th {
-    background-color: green;
+    background-color: #1C4032;
     color: white;
     text-align: center;
 }
