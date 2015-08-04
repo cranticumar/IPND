@@ -63,6 +63,10 @@ h2 {
    margin-top: 10px;
 }
 
+img {
+   text-align: center;
+}
+
 .subtopic {
    color : darkblue;
    font-weight: bold;
@@ -144,4 +148,8 @@ td {
 table {
    margin-top: 10px;
    margin-bottom: 10px;
+}
+
+ul.none {
+   list-style-type: none;
 }
