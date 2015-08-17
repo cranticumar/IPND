@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Learning at Udacity</title>
+        <link rel=stylesheet href=css/style.css>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="page">
+            <nav class="sidebar">
+                <ul class="none">
+                    <li class="boxed"><a href="#aboutme" class="side"><img src="media/image/Kranthi.jpg" alt="kranthi" class="pic" id="side"></a></li>
+                    <li class="boxed"><a href="#basicsofweb" class="side">web</a></li>
+                    <li class="boxed"><a href="#html" class="side">HTML</a></li>
+                    <li class="boxed"><a href="#css" class="side">CSS</a></li>
+                    <li class="boxed"><a href="#pl" class="side">Python</a></li>
+                    <li class="boxed"><a href="#best" class="side">TIPS</a></li>
+                </ul>
+            </nav>
+            <div class="maincontent">
+                <h1>Learning Programming at Udacity</h1>
+                <h2 id="aboutme">About me</h2>
+                <div class=abtme>
+                    <div class="myphoto">
+                        <img src="media/image/Kranthi.jpg" alt="Kranthi" class="pic">
+                    </div>
+                    <div class="detail" id="abt">
+                        I am Kranthi from INDIA. I am attending Introduction to Programming Nanodegree. I am gaining a lot of knowledge. I am already starting to realize where I am going to be at the end of this course. There is lot of perspective change in me at the end of Stage 1 itself. It is good to be here. Way to go!!!
+                    </div>
+                </div>
+                <h2 id="basicsofweb">1. Basics of Web</h2>
+                <div class="detail">
+                    Major pieces of World Wide Web a.k.a are <b>User, PC with a browser, Internet a.k.a World's Largest Network, HTTP (application protocol to communicate with servers)</b> and <b> Servers (PCs hosting files)</b>
+                    <div class="internaltopic">1.1 How the Web Works - How are major pieces of WWW connected?</div>
+                    <div class="detail">
+                        When user requests any webpage, DNS resolves the URL with IP address and connects to the server through Internet using HTTP protocol.
+                    </div>
+                </div>
+                <h2 id="html">2. HTML</h2>
+                <div class="detail">
+                    HTML stands for Hyper Text Markup Language. <b>W</b>orld <b>W</b>ide <b>W</b>eb is collection of HTML files. Multiple HTML files can be linked by hyper links. HTML Consists of 
+                    <ul>
+                        <li>Text - actual content</li>
+                        <li>Markups -  defines the look</li>
+                        <li>References to other documents, images, videos or any content</li>
+                        <li>Links to other pages a.k.a Hyperlinks</li>
+                    </ul>
+
+                    HTML documents is formed by one or more <b>HTML elements</b>. HTML elements are of two types - <b>inline</b> and <b>block</b>. <br>
+                    Block HTML elements have a kind of virtual boundary surrounding them.HTML elements are formed by HTML tags. Below is how bold HTML element looks like:<br>
+                    <div class="centeredimage">
+                        <img src="media/image/htmlelement.jpg" alt="HTML Element">
+                    </div>
+
+                    Not all HTML elements have closing tags. There are few elements which has only starting tag.
+
+                    <div class="internaltopic">2.1 DOM - Tree Like Structure of HTML</div>
+                    <div class="detail">
+                        DOM stands for Document Object Model. HTML is always read in structured manner by all browsers. Each HTML element can host other HTML elements.
+                        It is good to have well-organized structure HTML page, which eases the styling and also eases maintenence of blocks.
+                    </div>
+                </div>
+                <h2 id="css">3. CSS</h2>
+                <div class="detail">
+                    CSS stands for Cascading Style Sheets. As the name suggests, they are meant for styling everything that is viewable on the HTML page. <br>
+                    CSS can be linked into HTML in three ways. Here, they are:
+                    <ul>
+                        <li>Writing CSS in another file and link it HTML using <span class="specialwords">link</span> tag</li>
+                        <li>Include the code of CSS in same HTML file using <span class="specialwords">style</span> tag</li>
+                        <li>Styling it inline using <span class="specialwords">style</span> attribute</li>
+                    </ul>
+
+                    <div class="internaltopic">3.1 Understanding the Cascading</div>
+                    <div class="detail">
+                        Cascading in CSS is like a tree-branch/ancestor-descendant structure. I would like to use same example that Udacity coach taught me - hierarchial law. Country law is applicable to all states, state law applies to all cities, your house rules applies to all people in the house. Similarly styling also maintains similar heirarchy. Rules to <span class="specialwords">body</span> tag will apply to all <span class="specialwords">div</span> tags under it. Individual <span class="specialwords">div</span> can have its own styling. Styles of <span class="specialwords">body</span> and <span class="specialwords">div</span> will have impact on <span class="specialwords">span</span> tag used within. This feature/property of CSS is called <span class="specialwords">inheritance</span>.<br>
+                        There are Properties that can be inherited are color, font, letter-spacing, line-height, list-style, text-align, text-indent, text-transform, visibility, white-space and word-spacing. Properties that cannot be inherited are background, border, display, float and clear, height, and width, margin, min- and max-height and -width, outline, overflow, padding, position, text-decoration, vertical-align and z-index.
+                    </div>
+                    <div class="internaltopic">3.2 Elements, Classes, ID in CSS</div>
+                    <div class="detail">
+                        Apply style to HTML elements by mentioning html element name with styling attributes and values in flower braces <span class="specialwords">h2 {color: blue}</span><br>
+                        Apply style to multiple HTML elements using classes. For e.g. In this page, all topic headings belong to same Class, so that is the reason, they all look blue. Syle a Class by pre-fixing period infront of class name <span class="specialwords">.headings {color: blue}</span><br>
+                        Apply to style to specific element using id. For example, all the description in this page has same styling except for the content in <b>About me</b> section. It has some additional styling. It leaves some space for image to the right. Any special styling to spefic element/box is done by IDs.
+                        Style using ID in CSS as <span class="specialwords">#abtme {max-width: 95%}</span><br><br>
+                        <b style="text-decoration: underline">Some important points about Classes and ID:</b>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>ID</th>
+                                </tr>
+                                <tr>
+                                    <td>Avoids Repetition</td>
+                                    <td>Avoids Repetition</td>
+                                </tr>
+                                <tr>
+                                    <td>Class name can be same to all elements belonging to same Class</td>
+                                    <td>It is good coding practice to have unique ID to each element, if ID is being used</td>
+                                </tr>
+                                <tr>
+                                    <td>Cannot be used as part of navigator</td>
+                                    <td>Can be used as part of Navigator</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h2 id="best">Best Practices of HTML</h2>
+                <div class="detail">
+                    <b>Below are just few tips to make your life easier while coding in HTML and CSS:</b>
+                    <ul>
+                        <li>Alwys divide into as many boxes as you can, but be litle cautious</li>
+                        <li>Use Classes to avoid repetition. Benefits of avoiding repetition are as follows:
+                            <ul>
+                                <li>Less coding and less code</li>
+                                <li>Lesser size of HTML files, computer download pages from servers to show webpages when you browse, it will save money if you have lesser size</li>
+                                <li>Saves alot of time</li>
+                                <li>Less code inturn leads to less typing, which means less human prone errors. Unlike Human brains, Computer cannot relate to context and understand it, if they are spelling mistakes</li>
+                                <li>If you keep styling repeatedly, you might have your style code spread over in lot of places rather than at one place. It might waste time while debugging and also it might like unorganized</li>
+                            </ul>
+                        </li>
+                        <li>Main good intendation and hierarchy, so that it is readable to you and others</li>
+                        <li>Always visualize the design before coding</li>
+                        <li>Never use IDs the way you use Classes, they lead to many issues</li>
+                        <li>Use Developer tools to change the Style on the go.</li>
+                        <li>Google, W3Schools are best references</li>
+                        <li>Make your Class and ID names meaningful, so that it is easy for you to refer back in the future.</li>
+                    </ul>
+                </div>
+                <h2 id="pl">4. Python</h2>
+                <div class="detail">
+                    <b>Before really understanding what python is, we shall try to understand what a programming language is.</b>
+                    <div class="internaltopic">4.1 PROGRAMMING LANGUAGE</div>
+                    <div class="detail">
+                        Language is basically used for communication. An example of language is English. But if we start talking to computer in general languages, it would take pages to do a small task.<br>
+                        Another greater problem is ambiguity present in generally spoken languages, which computers might misinterpret. <br>
+                        So, all languages that we can talk to computers are made of strict grammar called Syntaxes (or) Instructions. <br>
+                        So Programming Language is nothing but a set of instructions, that a computer can understand. <br>
+                        Different Programming Languages are - Assembly Level Language, C, C Plus Plus, Java, Python, Perl, HTML and so on. <br><br>
+                        <b>One liners about each type of languages:</b>
+                        <ul>
+                            <li>Assembly Level Languages - Close to hardware, instructions are straight to hardware - may take many instrcutions to complete a task</li>
+                            <li>Compiler based Languages - C, C PLUS PLUS - Basic of all languages - Needs to be compiled from platform to platform</li>
+                            <li>Byte Code based Languages - Java, Python - These languages form byte code which runs on virtual platform, once this virtual platform is available, it can run on any platform. This virtual platform will convert the instructions in such a way that underlying platform can understand</li>
+                            <li>Interpreter based Languages - They get interpreted on the go.</li>
+                            <li>Markup Languages/Style Languages - they are used for looks/styling</li>
+                        </ul>
+                        <br>
+                        Processor processes the instructions provided. Fastness of the processor depends on its number of cycles that it can clock in a second (or) number of instructions that can process in a second.
+                    </div>
+                    <div class="internaltopic">4.2 PYTHON</div>
+                    <div class="detail">
+                        Python is modern programming language. It is very efficient. Difference between C-Style and Python is that Python do not have flower braces to tell about where a block is starting and ending. It strictly depends on intendation. So intendation is very important in Python compared to any other language. If there are any set of instructions that needs to be repeated, its better to be written as procedure or function. Syntax for defining a procedure in Python is <span class="specialwords">def</span>. Python cam store data in differnt types - Data types.<br>
+                        <ul>
+                            <li>strings - str</li>
+                            <li>lists - list</li>
+                            <li>dictionary - dict</li>
+                        </ul>
+                    </div>
+                    <div class="internaltopic">4.3 STRINGS</div>
+                    <div class="detail">
+                    </div>
+                    <div class="internaltopic">4.3 LISTS</div>
+                    <div class="detail">
+                    </div>
+                    <div class="internaltopic">4.3 DICTIONARIES</div>
+                    <div class="detail">
+                    </div>
+                    <div class="internaltopic">4.3 LOOPS</div>
+                    <div class="detail">
+                    </div>
+                </div>
+                <h2>References</h2>
+                <div  class="detail">
+                    <b>Reference Websites that helped me, might help you as well, check them out: </b>
+                    <ul>
+                        <li><a href="www.w3schools.com">w3schools</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets#Inheritance">Wikipedia</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
