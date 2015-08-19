@@ -4,27 +4,34 @@ charset = "UTF-8"
 title_of_page = 'Learning at Udacity'
 css_name = 'style.css'
 pagediv = {
-    'id' : 'page'
+    'id': 'page'
 }
 
 h2_headings = [
-{'id':'aboutme', 'class':'side', 'heading': 'About me', 'linkname': 'img0'},
-{'id':'basicsofweb', 'class':'side', 'heading': '1. Basics of Web', 'linkname': 'web'},
-{'id':'html', 'class':'side', 'heading': '2. HTML', 'linkname': 'HTML'},
-{'id':'css', 'class':'side', 'heading': '3. CSS', 'linkname': 'CSS'},
-{'id':'best', 'class':'side', 'heading': 'Best Practices', 'linkname': 'TIPS'},
+    {'id': 'aboutme', 'class': 'side',
+     'heading': 'About me', 'linkname': 'img0'},
+    {'id': 'basicsofweb', 'class': 'side',
+     'heading': '1. Basics of Web', 'linkname': 'web'},
+    {'id': 'html', 'class': 'side',
+     'heading': '2. HTML', 'linkname': 'HTML'},
+    {'id': 'css', 'class': 'side',
+     'heading': '3. CSS', 'linkname': 'CSS'},
+    {'id': 'best', 'class': 'side',
+     'heading': 'Best Practices', 'linkname': 'TIPS'},
 ]
 
 images = {
-'img0': {'id':'side', 'class':'pic', 'alt':'kranthi', 'src': media_location + 'images/Kranthi.jpg'}
+    'img0': {'id': 'side', 'class': 'pic',
+             'alt': 'kranthi', 'src': media_location + 'images/Kranthi.jpg'}
 }
 
 page_lists = {
     'list1': {'listclass': 'none', 'itemclass': 'boxed'}
 }
 
+
 def generate_header(title, cssname):
-    title_string = '<title>' + title +'</title>'
+    title_string = '<title>' + title + '</title>'
     css_string = '<link rel=stylesheet href=' + css_location + cssname + '>'
     encoding_string = '<meta charset="' + charset + '">'
     final_string = '''    <head>
@@ -35,20 +42,23 @@ def generate_header(title, cssname):
 
     return final_string
 
+
 def generate_body(body_data):
     body = '''    <body>''' + '''
         ''' + body_data + '''
     </body>'''
     return body
 
+
 def generate_html(title, cssname, body):
     header = generate_header(title, cssname)
     html = '''<!DOCTYPE HTML>
-<html> 
+<html>
 ''' + header + '''
 ''' + body + '''
 </html>'''
     return html
+
 
 def generate_html_list(ordered, list_class, list_items):
     '''
@@ -58,7 +68,7 @@ def generate_html_list(ordered, list_class, list_items):
     html_list = ''
     for item in list_items:
         content += '''
-        <li class="''' + list_class['itemclass'] + '>' + item + '</li>' 
+        <li class="''' + list_class['itemclass'] + '>' + item + '</li>'
 
     if ordered:
         '''
@@ -74,18 +84,24 @@ def generate_html_list(ordered, list_class, list_items):
     </ul>'''
     return html_list
 
+
 def generate_link(hrefs_texts_class):
     '''
     Generates links
     '''
     links_list = []
     for key in hrefs_texts_class:
+        # get the linkname
         lname = str(key['linkname'])
-        if key['linkname'].startswith('img') or key['linkname'].find('img') == 0:
-            lname = generate_other_html_elements('img', images['img0'] , False)
-        string = '<a href="#' + key['id'] + '" class="' + key['class'] + '">' + lname + '</a>'
+        if (lname.startswith('img') or
+                lname.find('img') == 0):
+            # if linkname starts 'img', generate img html element for that link
+            lname = generate_other_html_elements('img', images['img0'], False)
+        string = ('<a href="#' + key['id'] + '" class="' +
+                  key['class'] + '">' + lname + '</a>')
         links_list.append(string)
     return links_list
+
 
 def generate_div(class_id_content, content):
     '''
@@ -96,13 +112,6 @@ def generate_div(class_id_content, content):
         </div>'''
     return div_block
 
-
-
-def generate_headings(heading_type, heading, id_class):
-    '''
-    Generates headings and sub-heading with necessary
-    classes and ids
-    '''
 
 def generate_other_html_elements(tag_name, id_class, closetag, content=None):
     '''
@@ -125,6 +134,12 @@ def generate_other_html_elements(tag_name, id_class, closetag, content=None):
 
 links_to_sections = generate_link(h2_headings)
 nav_list = generate_html_list(False, page_lists['list1'], links_to_sections)
-div = generate_div(pagediv, generate_other_html_elements('nav', {'class': 'sidebar'}, True, nav_list))
+div = generate_div(
+        pagediv,
+        generate_other_html_elements(
+                            'nav',
+                            {'class': 'sidebar'},
+                            True,
+                            nav_list))
 body = generate_body(div)
 print generate_html(title_of_page, css_name, body)
