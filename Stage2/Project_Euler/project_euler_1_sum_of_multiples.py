@@ -1,4 +1,4 @@
-# Problem Statement #5: https://projecteuler.net/problem=1
+﻿# Problem Statement #5: https://projecteuler.net/problem=1
 def get_sum_multiples(range_of_numbers, list_of_multiples, all=False):
     sum = 0
     length = len(list_of_multiples)
@@ -15,4 +15,4 @@ def get_sum_multiples(range_of_numbers, list_of_multiples, all=False):
     return sum
 
 '''Tests'''
-# print get_sum_multiples(1000, [3,5])
+print get_sum_multiples(1000, [3,5])

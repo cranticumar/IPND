@@ -1,4 +1,4 @@
-# Problem Statement: http://www.mathblog.dk/project-euler-17-letters-in-the-numbers-1-1000/
+﻿# Problem Statement: http://www.mathblog.dk/project-euler-17-letters-in-the-numbers-1-1000/
 strings = {
     1: 'one',
     2: 'two',
@@ -85,19 +85,19 @@ def get_ones(number):
         return 0
 
 '''Tests'''
-# print count_letters(119, 121)
-# print '*' * 10
-# print count_letters(99,101)
-# print '*' * 10
-# print count_letters(109,111)
-# print '*' * 10
-# print count_letters(9,11)
-# print '*' * 10
-# print count_letters(19,21)
-# print '*' * 10
-# print count_letters(899,901)
-# print '*' * 10
-# print count_letters(88,91)
-# print '*' * 10
-# print count_letters(1,1000)
-# print count_letters(21201,21201)
+ print count_letters(119, 121)
+ print '*' * 10
+ print count_letters(99,101)
+ print '*' * 10
+ print count_letters(109,111)
+ print '*' * 10
+ print count_letters(9,11)
+ print '*' * 10
+ print count_letters(19,21)
+ print '*' * 10
+ print count_letters(899,901)
+ print '*' * 10
+ print count_letters(88,91)
+ print '*' * 10
+ print count_letters(1,1000)
+ print count_letters(21201,21201)
