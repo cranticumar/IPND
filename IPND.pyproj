@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Stage0\htmlelement.jpg" />
+    <Content Include="Stage0\LearningatUdacity.html" />
+    <Content Include="Stage0\style.css" />
+    <Content Include="Stage1\css\style.css" />
+    <Content Include="Stage1\LearningatUdacity.html" />
+    <Content Include="Stage1\media\image\htmlelement.jpg" />
+    <Content Include="Stage1\media\image\Kranthi.jpg" />
+    <Content Include="Stage1\Stage1.3\app.html" />
+    <Content Include="Stage1\Stage1.3\css\style.css" />
+    <Content Include="Stage1\Stage1.3\media\Penguins.jpg" />
+    <Content Include="Stage2\css\style.css" />
+    <Content Include="Stage2\LearningatUdacity.html" />
+    <Content Include="Stage2\media\image\htmlelement.jpg" />
+    <Content Include="Stage2\media\image\Kranthi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Stage2\html_generator.py" />
+    <Compile Include="Stage2\Python\days_old.py" />
+    <Compile Include="Stage2\Python\find_last_occurance_string.py" />
+    <Compile Include="Stage2\Python\get_random_20_numbers.py" />
+    <Compile Include="Stage2\Python\identity_check_matrix.py" />
+    <Compile Include="Stage2\Project_Euler\project_euler_17_count_characters.py" />
+    <Compile Include="Stage2\Project_Euler\project_euler_1_sum_of_multiples.py" />
+    <Compile Include="Stage2\Python\Stage2_Notes.py" />
+    <Compile Include="Stage2\Python\tictactoe.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stage0" />
+    <Folder Include="Stage1" />
+    <Folder Include="Stage1\css" />
+    <Folder Include="Stage1\media\" />
+    <Folder Include="Stage1\media\image" />
+    <Folder Include="Stage1\Stage1.3" />
+    <Folder Include="Stage1\Stage1.3\css" />
+    <Folder Include="Stage1\Stage1.3\media" />
+    <Folder Include="Stage2" />
+    <Folder Include="Stage2\css" />
+    <Folder Include="Stage2\media\" />
+    <Folder Include="Stage2\media\image" />
+    <Folder Include="Stage2\Project_Euler\" />
+    <Folder Include="Stage2\Python" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
