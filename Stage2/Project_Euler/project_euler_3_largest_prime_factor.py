@@ -1,6 +1,7 @@
 ﻿def gen_prime_factors(number):
     '''
     Generates a list of prime factors for the provided number
+    http://www.ilovemaths.com/1lcmandhcf.asp
     '''
     largest = []
     lcm = []
