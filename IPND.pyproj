@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Stage2\Project_Euler\project_euler_4_palidrome_3digit_products.py</StartupFile>
+    <StartupFile>Stage2\Project_Euler\project_euler_5_lcm.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -35,9 +35,11 @@
     <Content Include="Stage2\LearningatUdacity.html" />
     <Content Include="Stage2\media\image\htmlelement.jpg" />
     <Content Include="Stage2\media\image\Kranthi.jpg" />
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Stage2\html_generator.py" />
+    <Compile Include="Stage2\Project_Euler\project_euler_5_lcm.py" />
     <Compile Include="Stage2\Project_Euler\project_euler_4_palidrome_3digit_products.py" />
     <Compile Include="Stage2\Project_Euler\project_euler_3_largest_prime_factor.py">
       <SubType>Code</SubType>
