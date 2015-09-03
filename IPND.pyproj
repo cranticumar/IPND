@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Stage2\Project_Euler\project_euler_9.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -31,6 +32,10 @@
     <Content Include="Stage1\Stage1.3\app.html" />
     <Content Include="Stage1\Stage1.3\css\style.css" />
     <Content Include="Stage1\Stage1.3\media\Penguins.jpg" />
+    <Content Include="Stage3\css\style.css" />
+    <Content Include="Stage3\LearningatUdacity.html" />
+    <Content Include="Stage3\media\image\htmlelement.jpg" />
+    <Content Include="Stage3\media\image\Kranthi.jpg" />
     <Content Include="Stage2\css\style.css" />
     <Content Include="Stage2\LearningatUdacity.html" />
     <Content Include="Stage2\media\image\htmlelement.jpg" />
@@ -38,25 +43,26 @@
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Stage3\html_generator.py" />
     <Compile Include="Stage2\html_generator.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_9.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_8_largest_product_in_series.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_7_nth_prime.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_6_sum_square_diff.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_5_lcm.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_4_palidrome_3digit_products.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_3_largest_prime_factor.py">
+    <Compile Include="Project_Euler\project_euler_9.py" />
+    <Compile Include="Project_Euler\project_euler_8_largest_product_in_series.py" />
+    <Compile Include="Project_Euler\project_euler_7_nth_prime.py" />
+    <Compile Include="Project_Euler\project_euler_6_sum_square_diff.py" />
+    <Compile Include="Project_Euler\project_euler_5_lcm.py" />
+    <Compile Include="Project_Euler\project_euler_4_palidrome_3digit_products.py" />
+    <Compile Include="Project_Euler\project_euler_3_largest_prime_factor.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Stage2\Project_Euler\project_euler_2_sum_of_even_fibonacci.py">
+    <Compile Include="Project_Euler\project_euler_2_sum_of_even_fibonacci.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Stage2\Python\days_old.py" />
     <Compile Include="Stage2\Python\find_last_occurance_string.py" />
     <Compile Include="Stage2\Python\get_random_20_numbers.py" />
     <Compile Include="Stage2\Python\identity_check_matrix.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_17_count_characters.py" />
-    <Compile Include="Stage2\Project_Euler\project_euler_1_sum_of_multiples.py" />
+    <Compile Include="Project_Euler\project_euler_17_count_characters.py" />
+    <Compile Include="Project_Euler\project_euler_1_sum_of_multiples.py" />
     <Compile Include="Stage2\Python\Stage2_Notes.py" />
     <Compile Include="Stage2\Python\tictactoe.py" />
   </ItemGroup>
@@ -70,10 +76,14 @@
     <Folder Include="Stage1\Stage1.3\css" />
     <Folder Include="Stage1\Stage1.3\media" />
     <Folder Include="Stage2" />
+    <Folder Include="Stage3\" />
+    <Folder Include="Stage3\css\" />
+    <Folder Include="Stage3\media\" />
+    <Folder Include="Stage3\media\image\" />
     <Folder Include="Stage2\css" />
     <Folder Include="Stage2\media\" />
     <Folder Include="Stage2\media\image" />
-    <Folder Include="Stage2\Project_Euler\" />
+    <Folder Include="Project_Euler\" />
     <Folder Include="Stage2\Python" />
   </ItemGroup>
   <ItemGroup>
