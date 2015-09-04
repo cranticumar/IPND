@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>Stage3\Python\movie_list.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -65,6 +64,22 @@
     <Compile Include="Project_Euler\project_euler_1_sum_of_multiples.py" />
     <Compile Include="Stage2\Python\Stage2_Notes.py" />
     <Compile Include="Stage2\Python\tictactoe.py" />
+    <Compile Include="Stage3\Python\draw_turtles.py" />
+    <Compile Include="Stage3\Python\movie.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\Python\movie_list.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\Python\profanity_check.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\Python\rename_problems.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\Python\twilio_sms.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Stage0" />
@@ -85,6 +100,8 @@
     <Folder Include="Stage2\media\image" />
     <Folder Include="Project_Euler\" />
     <Folder Include="Stage2\Python" />
+    <Folder Include="Stage3\Python\" />
+    <Folder Include="Stage3\Python\support_files\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
