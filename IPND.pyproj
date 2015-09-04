@@ -39,6 +39,11 @@
     <Content Include="Stage2\LearningatUdacity.html" />
     <Content Include="Stage2\media\image\htmlelement.jpg" />
     <Content Include="Stage2\media\image\Kranthi.jpg" />
+    <Content Include="Stage3\Python\support_files\movie_website\movie_website.jpg" />
+    <Content Include="Stage3\Python\support_files\rename_problems\tested.txt" />
+    <Content Include="Stage3\Python\support_files\rename_problems\TextFile1.txt" />
+    <Content Include="Stage3\Python\support_files\turtle.png" />
+    <Content Include="Stage3\Python\support_files\turtle_flower.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +82,7 @@
     <Compile Include="Stage3\Python\rename_problems.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Stage3\Python\fresh_tomatoes.py" />
     <Compile Include="Stage3\Python\twilio_sms.py">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Folder Include="Stage2\Python" />
     <Folder Include="Stage3\Python\" />
     <Folder Include="Stage3\Python\support_files\" />
+    <Folder Include="Stage3\Python\support_files\external\" />
+    <Folder Include="Stage3\Python\support_files\movie_website\" />
+    <Folder Include="Stage3\Python\support_files\rename_problems\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
