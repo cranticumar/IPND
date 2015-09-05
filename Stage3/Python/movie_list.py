@@ -33,3 +33,4 @@ in_time = movie.Movie("In Time",
 
 list_of_movies = [man_from_the_earth, in_time, baahubhali_begin, baahubhali_conclusion, lotr, live_free_or_die_hard]
 fresh_tomatoes.open_movies_page(list_of_movies)
+print movie.Movie.__module__
