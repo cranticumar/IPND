@@ -31,10 +31,6 @@
     <Content Include="Stage1\Stage1.3\app.html" />
     <Content Include="Stage1\Stage1.3\css\style.css" />
     <Content Include="Stage1\Stage1.3\media\Penguins.jpg" />
-    <Content Include="Stage3\css\style.css" />
-    <Content Include="Stage3\LearningatUdacity.html" />
-    <Content Include="Stage3\media\image\htmlelement.jpg" />
-    <Content Include="Stage3\media\image\Kranthi.jpg" />
     <Content Include="Stage2\css\style.css" />
     <Content Include="Stage2\LearningatUdacity.html" />
     <Content Include="Stage2\media\image\htmlelement.jpg" />
@@ -47,7 +43,6 @@
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Stage3\html_generator.py" />
     <Compile Include="Stage2\html_generator.py" />
     <Compile Include="Project_Euler\project_euler_9.py" />
     <Compile Include="Project_Euler\project_euler_8_largest_product_in_series.py" />
@@ -98,9 +93,6 @@
     <Folder Include="Stage1\Stage1.3\media" />
     <Folder Include="Stage2" />
     <Folder Include="Stage3\" />
-    <Folder Include="Stage3\css\" />
-    <Folder Include="Stage3\media\" />
-    <Folder Include="Stage3\media\image\" />
     <Folder Include="Stage2\css" />
     <Folder Include="Stage2\media\" />
     <Folder Include="Stage2\media\image" />
