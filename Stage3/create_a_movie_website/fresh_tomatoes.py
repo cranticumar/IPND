@@ -76,7 +76,7 @@ def gen_body(pre_generated, video_objects, page):
     '''
     dynamic_body = ''
     if page == "home":
-        dynamic_body = '''<div class="tagline">A Great Collection of Videos</div>
+        dynamic_body += '''<div class="tagline">A Great Collection of Videos</div>
     <div class=slideshow>
     '''
         for each in video_objects.keys():
@@ -88,7 +88,32 @@ def gen_body(pre_generated, video_objects, page):
         dynamic_body += '''</div>
     '''
     elif page.lower() in ["movie", "tvseries"]:
-        
+        dynamic_body += '''<div class="gallery">
+    '''
+        for each in video_objects.keys():
+            if each == page:
+                for vid in video_objects[each]:
+                    dynamic_body += '''    <div class="video">
+            <img src="''' + vid.poster + '''">
+            <table class="content">
+                <tr><td><b>Title</b></td><td>: ''' + vid.title + '''</td></tr>
+                '''
+                    if page.lower() == "movie":
+                        dynamic_body += '''<tr><td><b>Release Date</b></td><td>: ''' + vid.release_date + '''</td></tr>
+                <tr><td class="storyline"><b>Story Line</b></td><td>: ''' + vid.storyline + '''</td></tr>
+                '''
+                    elif page.lower() == "tvseries":
+                        dynamic_body += '''<tr><td><b>Series Start Date</b></td><td>: ''' + vid.start_date + '''</td></tr>
+                <tr><td><b>Series End Date</b></td><td>: ''' + vid.end_date + '''</td></tr>
+                <tr><td><b>Seasons</b></td><td>: ''' + vid.seasons + '''</td></tr>
+                <tr><td><b>Episodes</b></td><td>: ''' + vid.episodes + '''</td></tr>
+                <tr><td class="storyline"><b>Plot</b></td><td>: ''' + vid.plot + '''</td></tr>
+                '''
+                    dynamic_body += '''<tr><td><b>Duration</b></td><td>: ''' + vid.duration + '''</td></tr>
+            </table>
+        </div>
+    '''
+        dynamic_body += '''</div>'''
 
     body = '''<body>
     ''' + pre_generated + '''
