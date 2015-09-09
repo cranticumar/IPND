@@ -94,7 +94,9 @@ def gen_body(pre_generated, video_objects, page):
             if each == page:
                 for vid in video_objects[each]:
                     dynamic_body += '''    <div class="video">
-            <img src="''' + vid.poster + '''">
+            <a href="''' + vid.trailer.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/") + '''?autoplay=1&html5=1&rel=0&wmode=transparent">
+                <img src="''' + vid.poster + '''">
+            </a>
             <table class="content">
                 <tr><td><b>Title</b></td><td>: ''' + vid.title + '''</td></tr>
                 '''
