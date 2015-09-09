@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Stage3\Python\movie_list.py</StartupFile>
+    <StartupFile>Stage3\create_a_movie_website\movies_tvseries_list.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -35,6 +35,12 @@
     <Content Include="Stage2\LearningatUdacity.html" />
     <Content Include="Stage2\media\image\htmlelement.jpg" />
     <Content Include="Stage2\media\image\Kranthi.jpg" />
+    <Content Include="Stage3\create_a_movie_website\css\style - Copy.css" />
+    <Content Include="Stage3\create_a_movie_website\css\style.css" />
+    <Content Include="Stage3\create_a_movie_website\nav.html" />
+    <Content Include="Stage3\create_a_movie_website\video_gallery_home.html" />
+    <Content Include="Stage3\create_a_movie_website\video_gallery_movie.html" />
+    <Content Include="Stage3\create_a_movie_website\video_gallery_tvseries.html" />
     <Content Include="Stage3\Python\support_files\movie_website\movie_website.jpg" />
     <Content Include="Stage3\Python\support_files\rename_problems\tested.txt" />
     <Content Include="Stage3\Python\support_files\rename_problems\TextFile1.txt" />
@@ -64,6 +70,19 @@
     <Compile Include="Project_Euler\project_euler_1_sum_of_multiples.py" />
     <Compile Include="Stage2\Python\Stage2_Notes.py" />
     <Compile Include="Stage2\Python\tictactoe.py" />
+    <Compile Include="Stage3\create_a_movie_website\fresh_tomatoes.py" />
+    <Compile Include="Stage3\create_a_movie_website\movies.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\create_a_movie_website\movies_tvseries_list.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\create_a_movie_website\tv_series.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage3\create_a_movie_website\video.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Stage3\Python\draw_turtles.py" />
     <Compile Include="Stage3\Python\movie.py">
       <SubType>Code</SubType>
@@ -98,6 +117,8 @@
     <Folder Include="Stage2\media\image" />
     <Folder Include="Project_Euler\" />
     <Folder Include="Stage2\Python" />
+    <Folder Include="Stage3\create_a_movie_website\" />
+    <Folder Include="Stage3\create_a_movie_website\css\" />
     <Folder Include="Stage3\Python\" />
     <Folder Include="Stage3\Python\support_files\" />
     <Folder Include="Stage3\Python\support_files\external\" />
