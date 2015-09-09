@@ -17,18 +17,24 @@ def launch_website(list_of_movies):
             types.append(each.type)
             videos_by_type[each.type] = []
         videos_by_type[each.type].append(each)
+
+    # generates navigation menu for once and re-uses for other pages
+    # navigation menu is generated based number of types of videos
     nav = gen_nav(types)
+
+    # generates different body contents based on the page
     body = gen_body(nav, videos_by_type, "home")
     htmls['home'] = gen_website_html("Video Gallery Home", body)
     for each in types:
         htmls[each] = gen_website_html("Video Gallery " + each, 
                                        gen_body(nav, videos_by_type, each))
 
+    # launch home page
     webbrowser.open(htmls['home'])
 
 def gen_website_html(title, body):
     '''
-    Generate a HTML Page
+    Generates a HTML Page
     '''
     html = '''<!DOCTYPE HTML>
 <html>
@@ -125,7 +131,7 @@ def gen_body(pre_generated, video_objects, page):
 
 def gen_nav(types):
     '''
-    generates navigation header bar
+    generates navigation bar
     '''
     list_of_items = '''<nav>
         <ul>
