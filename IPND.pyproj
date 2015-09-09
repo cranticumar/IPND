@@ -36,7 +36,6 @@
     <Content Include="Stage2\media\image\htmlelement.jpg" />
     <Content Include="Stage2\media\image\Kranthi.jpg" />
     <Content Include="Stage3\create_a_movie_website\css\style.css" />
-    <Content Include="Stage3\create_a_movie_website\nav.html" />
     <Content Include="Stage3\create_a_movie_website\video_gallery_home.html" />
     <Content Include="Stage3\create_a_movie_website\video_gallery_movie.html" />
     <Content Include="Stage3\create_a_movie_website\video_gallery_tvseries.html" />
