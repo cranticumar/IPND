@@ -5,14 +5,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8f12277a-d9f3-449b-9d75-8d46c8e57e33}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Stage3\create_a_movie_website\movies_tvseries_list.py</StartupFile>
-    <SearchPath />
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>..\..\..\..\..\PROGRA~2\Google\google_appengine\lib\webapp2-2.5.2;..\..\automation_tools;..\..\automation_tools\lib;..\..\..\..\..\progra~2\Google\google_appengine\lib\jinja2-2.6</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -44,6 +46,13 @@
     <Content Include="Stage3\Python\support_files\rename_problems\TextFile1.txt" />
     <Content Include="Stage3\Python\support_files\turtle.png" />
     <Content Include="Stage3\Python\support_files\turtle_flower.png" />
+    <Content Include="Stage4\learningatudacity\app.yaml" />
+    <Content Include="Stage4\learningatudacity\css\style.css" />
+    <Content Include="Stage4\learningatudacity\templates\mainpage.html" />
+    <Content Include="Stage4\learningatudacity\templates\validatedate.html" />
+    <Content Include="Stage4\learningatudacity\templates\fizzbuzz.html" />
+    <Content Include="Stage4\learningatudacity\templates\shoppingcart.html" />
+    <Content Include="Stage4\learn.html" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -62,12 +71,12 @@
     </Compile>
     <Compile Include="Stage2\Python\days_old.py" />
     <Compile Include="Stage2\Python\find_last_occurance_string.py" />
+    <Compile Include="Stage2\Python\tictactoe.py" />
     <Compile Include="Stage2\Python\get_random_20_numbers.py" />
     <Compile Include="Stage2\Python\identity_check_matrix.py" />
     <Compile Include="Project_Euler\project_euler_17_count_characters.py" />
     <Compile Include="Project_Euler\project_euler_1_sum_of_multiples.py" />
     <Compile Include="Stage2\Python\Stage2_Notes.py" />
-    <Compile Include="Stage2\Python\tictactoe.py" />
     <Compile Include="Stage3\create_a_movie_website\fresh_tomatoes.py" />
     <Compile Include="Stage3\create_a_movie_website\movies.py">
       <SubType>Code</SubType>
@@ -98,8 +107,16 @@
     <Compile Include="Stage3\Python\twilio_sms.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Stage4\learningatudacity\learningatudacity.py" />
+    <Compile Include="Stage4\learningatudacity\date_validation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage4\learningatudacity\sql.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Stage4\" />
     <Folder Include="Stage0" />
     <Folder Include="Stage1" />
     <Folder Include="Stage1\css" />
@@ -122,6 +139,9 @@
     <Folder Include="Stage3\Python\support_files\external\" />
     <Folder Include="Stage3\Python\support_files\movie_website\" />
     <Folder Include="Stage3\Python\support_files\rename_problems\" />
+    <Folder Include="Stage4\learningatudacity\" />
+    <Folder Include="Stage4\learningatudacity\css\" />
+    <Folder Include="Stage4\learningatudacity\templates\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />

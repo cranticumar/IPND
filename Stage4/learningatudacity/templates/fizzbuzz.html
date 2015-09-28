@@ -1,0 +1,25 @@
+﻿{% extends "mainpage.html" %}
+
+{% block content %}
+<form>
+    Enter the range number: <input type="text" name="n">
+    <button>Print FizzBuzz</button>
+    {% if n %}
+    <ol>
+        {% for i in range(1, n+1) %}
+        <li>
+            {% if i % 15 == 0 %}
+            FizzBuzz
+            {% elif i % 3 == 0 %}
+            Fizz
+            {% elif i % 5 ==0 %}
+            Buzz
+            {% else %}
+            {{ i }}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</form>
+{% endblock %}

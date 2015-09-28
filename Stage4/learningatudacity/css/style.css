@@ -1,0 +1,101 @@
+﻿body {
+    margin: 0px;
+}
+
+nav {
+    width: 100%;
+    background-color : #444;
+    height: 50px;
+    text-align: center;
+    padding-top: 0px;
+    margin: 0px;
+}
+
+nav ul {
+    text-align: justify;
+    line-height: 0;
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+}
+
+nav ul:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 100%;
+    font-size: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+nav ul li a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    background-color: white;
+    color: black;
+}
+
+nav ul li a:active {
+    background-color: white;
+    color: black;
+}
+
+.content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 15px;
+}
+
+.read {
+    order: 0;
+    width: 70%;
+    padding-right: 10px;
+}
+
+.concept {
+    background-color: #fff;
+    margin-bottom: 15px;
+    border: 1px solid #e1e1e1;
+    padding: 1.1rem;
+}
+
+.concept p{
+    color: #222;
+    font-family: 'PT Sans Caption', 'PT Sans',sans-serif;
+    font-size: 16px;
+    line-height: 1.625;
+}
+
+.application {
+    order: 1;
+    width: 30%;
+    background-color: #3f3f3f;
+    background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+    padding-left: 20px;
+    color: white;
+    padding-top: 10px;
+}
+
+.userbar {
+    background-color: rgb(241, 241, 241);
+    height: 30px;
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    font-size: medium;
+    font-family: 'PT Sans Caption', 'PT Sans',sans-serif;
+}

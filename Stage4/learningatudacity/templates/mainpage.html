@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            {% for name in templates %}
+            <li>
+                <a href="{{ name.lower() }}">
+                    {{ name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="read">
+            {% for head, concept in areas %}
+            <div class="concept">
+                <h3>{{ head }}</h3>
+                <p>{{ concept }}</p>
+            </div>
+            {% endfor %}
+            <form>
+                {% if user %}
+                <div class="userbar">
+                    <b>{{ user }} logged in</b>
+                </div>
+                    <input type="text" name="comment">
+                    <input type="button" value="post">
+                {% else %}
+                <div class="userbar">
+                    <b>Please login to post comments</b>
+                    <input type="text" name="uname" placeholder="User Name">
+                    <input type="password" name="pwd" placeholder="Password">
+                    <input type="button" value="Login">
+                </div>
+                {% endif %}
+                {% if posts %}
+                <ul>
+                    {% for post in posts %}
+                    <li>
+                        <b>{{ post[0] }} on {{ post[1] }} posted:</b>
+                        <div class="post">{{ post[2] }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </form>
+        </div>
+        <div class="application">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
