@@ -8,8 +8,8 @@ templates_dir = os.path.join(os.path.dirname(__file__), "templates")
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(templates_dir),
                                autoescape = "true")
 
-areas = [('head1', 'concept1'), ('head2', 'concept2')]
-user = random.choice([None, 'kranthi', 'user2', None])
+areas = [('Servers', 'concept1'), ('Templates and Abstraction', 'concept2'), ('Input Validation', 'concept2')]
+user = random.choice([None, 'kranthi', 'kranthi'])
 
 class Handler(webapp2.RequestHandler):
     """WEBAPP2 Request Handler inherited class"""
@@ -35,7 +35,7 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
-        self.render("mainpage.html", templates = self.get_templates())
+        self.render("mainpage.html", templates = self.get_templates(), home=True)
 
     def post(self):
         content = self.request.get("comment")
@@ -82,8 +82,13 @@ class ValidateDate(Handler):
             self.render("validatedate.html", templates = self.get_templates(),
                         month = month, day = day, year = year, message = "Invalid Day", col = "red")
 
+class Admin(Handler):
+    def get(self):
+        self.render("admin.html", templates = self.get_templates())
+
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/mainpage', MainPage),
                                ("/validatedate", ValidateDate),
                                ("/shoppingcart", ShoppingCart),
-                               ("/fizzbuzz", FizzBuzz)], debug=True)
+                               ("/fizzbuzz", FizzBuzz),
+                               ("/admin", Admin)], debug=True)

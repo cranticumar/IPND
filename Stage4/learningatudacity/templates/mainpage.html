@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            {% for name in templates %}
-            <li>
-                <a href="{{ name.lower() }}">
-                    {{ name }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </nav>
+    {% include "nav.html" %}
     <div class="content">
         <div class="read">
             {% for head, concept in areas %}
@@ -32,7 +22,11 @@
                 <div class="userbar">
                     <b>{{ user }} logged in</b>
                 </div>
-                    <input type="text" name="comment">
+                    <textarea type="text"
+                              name="comment"
+                              id="post"
+                              placeholder="Write your Valuable feedback"
+                              maxlength="10000"></textarea>
                     <input type="button" value="post">
                 {% else %}
                 <div class="userbar">
@@ -55,8 +49,33 @@
             </form>
         </div>
         <div class="application">
-            {% block content %}
-            {% endblock %}
+            {% if home %}
+            <form method="post" style="padding-top:25px; padding-left:25px">
+                <table>
+                    <tr>
+                        <td>User Name*:&emsp;</td>
+                        <td><input type="text" name="uname" placeholder="choose your username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password*:&emsp;</td>
+                        <td><input type="password" name="pwd" placeholder="Password"></td>
+                    </tr>
+                    <tr>
+                        <td>Retype Password*:&emsp;</td>
+                        <td><input type="password" name="pwd" placeholder="Retype Your Password"></td>
+                    </tr>
+                    <tr>
+                        <td>Nick Name:&emsp;</td>
+                        <td><input type="text" name="pwd" placeholder="Nick Name"></td>
+                    </tr>
+                </table><br>
+                &emsp;<input type="checkbox" name="tandc"> &nbsp; I agree to the terms and conditions<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" value="Create User">
+            </form>
+            {% else %}
+                {% block content %}
+                {% endblock %}
+            {% endif %}
         </div>
     </div>
 </body>

@@ -54,8 +54,8 @@ nav ul li a:active {
     display: flex;
     flex-flow: row nowrap;
     align-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
     margin-top: 15px;
 }
 
@@ -98,4 +98,48 @@ nav ul li a:active {
     padding-bottom: 5px;
     font-size: medium;
     font-family: 'PT Sans Caption', 'PT Sans',sans-serif;
+}
+
+textarea#post {
+    width: 100%;
+    height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+    font-family: Tahoma;
+    font-size: 14px;
+    line-height: 1.625;
+}
+
+h3 {
+    background-color: rgb(241, 241, 241);
+    height: 30px;
+    text-align: center;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    font-size: large;
+    font-family: Tahoma;
+}
+
+#addcontent {
+    padding-top: 30px;
+    text-align: center;
+}
+
+#addcontent input[type=text] {
+    width: 80%;
+    font-size: large;
+    font-family: Tahoma;
+    text-align: center;
+}
+
+#addcontent textarea {
+    width: 80%;
+    height: 500px;
+    font-size: medium;
+    font-family: Tahoma;
+}
+
+[placeholder] {
+    text-transform: capitalize;
 }
