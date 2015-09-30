@@ -2,13 +2,38 @@
 import jinja2
 import os
 import random
+from udacity_datastore import Concepts
+from google.appengine.ext import ndb
 from date_validation import validate_date
 
 templates_dir = os.path.join(os.path.dirname(__file__), "templates")
+concepts_dir = os.path.join(os.path.dirname(__file__), "concepts")
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(templates_dir),
                                autoescape = "true")
 
-areas = [('Servers', 'concept1'), ('Templates and Abstraction', 'concept2'), ('Input Validation', 'concept2')]
+areas = list()
+for each in os.walk(concepts_dir):
+    for concept in each[2]:
+        if os.path.splitext(concept)[1] == '.txt':
+            fh = open(os.path.join(each[0], concept))
+            fcontent = fh.read()
+            fh.close()
+            t_c_tup = (os.path.splitext(concept)[0].replace('_','.'), fcontent)
+            records_count = Concepts.query().filter(Concepts.concept == {t_c_tup[0] : t_c_tup[1]}).count()
+            if records_count == 0:
+                tmp = Concepts(concept = {t_c_tup[0] : t_c_tup[1]})
+                tmp.put()
+            elif records_count > 1:
+                tmp = Concepts.query(Concepts.concept == {t_c_tup[0] : t_c_tup[1]}).get()
+                tmp.key.delete()
+
+
+
+for each in Concepts.query():
+    if not each.concept.items()[0] in areas:
+        areas.append(each.concept.items()[0])
+
+areas.sort()
 user = random.choice([None, 'kranthi', 'kranthi'])
 
 class Handler(webapp2.RequestHandler):

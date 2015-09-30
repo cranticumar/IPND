@@ -7,7 +7,7 @@
     <ProjectHome />
     <StartupFile>
     </StartupFile>
-    <SearchPath>..\..\..\..\..\Python27\Lib\site-packages\;..\..\..\..\..\PROGRA~2\Google\google_appengine\lib\webapp2-2.5.2;..\..\..\..\..\progra~2\Google\google_appengine\lib\jinja2-2.6;..\..\..\..\..\PROGRA~2\Google\google_appengine;..\..\automation_tools;..\..\automation_tools\lib</SearchPath>
+    <SearchPath>..\..\..\..\..\Python27\Lib\site-packages\;..\..\..\..\..\PROGRA~2\Google\google_appengine\lib\webapp2-2.5.2;..\..\..\..\..\progra~2\Google\google_appengine\lib\jinja2-2.6;..\..\automation_tools;..\..\automation_tools\lib;..\..\..\..\..\Program Files (x86)\Google\google_appengine\google\appengine\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
@@ -48,6 +48,9 @@
     <Content Include="Stage3\Python\support_files\turtle.png" />
     <Content Include="Stage3\Python\support_files\turtle_flower.png" />
     <Content Include="Stage4\learningatudacity\app.yaml" />
+    <Content Include="Stage4\learningatudacity\concepts\2_Templates and Abstraction.txt" />
+    <Content Include="Stage4\learningatudacity\concepts\3_Input Validation.txt" />
+    <Content Include="Stage4\learningatudacity\concepts\1_Servers.txt" />
     <Content Include="Stage4\learningatudacity\css\style.css" />
     <Content Include="Stage4\learningatudacity\templates\mainpage.html" />
     <Content Include="Stage4\learningatudacity\templates\nav.html" />
@@ -147,6 +150,7 @@
     <Folder Include="Stage3\Python\support_files\rename_problems\" />
     <Folder Include="Stage4\learningatudacity\" />
     <Folder Include="Stage4\learningatudacity\css\" />
+    <Folder Include="Stage4\learningatudacity\concepts\" />
     <Folder Include="Stage4\learningatudacity\templates\" />
   </ItemGroup>
   <ItemGroup>
