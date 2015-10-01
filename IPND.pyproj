@@ -117,9 +117,6 @@
     <Compile Include="Stage4\learningatudacity\data_validation.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Stage4\learningatudacity\sql.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Stage4\learningatudacity\udacity_datastore.py">
       <SubType>Code</SubType>
     </Compile>
