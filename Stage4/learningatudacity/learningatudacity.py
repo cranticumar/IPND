@@ -27,14 +27,12 @@ for each in os.walk(concepts_dir):
                 tmp = Concepts.query(Concepts.concept == {t_c_tup[0] : t_c_tup[1]}).get()
                 tmp.key.delete()
 
-
-
 for each in Concepts.query():
     if not each.concept.items()[0] in areas:
         areas.append(each.concept.items()[0])
 
 areas.sort()
-user = random.choice([None, 'kranthi', 'kranthi'])
+CURRENT_USER = None
 
 class Handler(webapp2.RequestHandler):
     """WEBAPP2 Request Handler inherited class"""
@@ -45,8 +43,8 @@ class Handler(webapp2.RequestHandler):
     def render_str(self, template, **params):
         """renders template with provided params"""
         t = jinja_env.get_template(template)
-        params['areas'] = params.get('areas', areas)
-        params['user'] = params.get('user', user)
+        params['areas'] = areas
+        params['user'] = params.get('user', CURRENT_USER)
         return t.render(params)
 
     def render(self, template, **kw):
@@ -61,20 +59,22 @@ class Handler(webapp2.RequestHandler):
 class MainPage(Handler):
     def get(self):
         logging.debug("I am in get")
-        self.render("mainpage.html", templates = self.get_templates(), home=True)
+        self.render("mainpage.html", templates = self.get_templates(), home=True, user = CURRENT_USER)
 
     def post(self):
         logging.debug("I am in post")
         login = self.request.get("login")
         create = self.request.get("create")
+        logout = self.request.get("logout")
         uname = self.request.get("uname")
         pwd = self.request.get("pwd")
         if login:
-            self.render("mainpage.html",
-                        templates = self.get_templates(),
-                        content = content,
-                        user = user,
-                        message = user + " logged in")
+            user_entity = Users.query(uname_lc == uname.lower(), pwd == pwd).get()
+            CURRENT_USER = user_entity.nickname
+            if CURRENT_USER:
+                self.render("mainpage.html",
+                            templates = self.get_templates(),
+                            home = True)
         elif create:
             rpwd = self.request.get("rpwd")
             nname = self.request.get("nname", default_value = uname.lower())
@@ -95,6 +95,8 @@ class MainPage(Handler):
                         templates = self.get_templates(),
                         home = True,
                         messages = messages)
+        elif logout:
+            CURRENT_USER = None
 
 class ShoppingCart(Handler):
     def get(self):

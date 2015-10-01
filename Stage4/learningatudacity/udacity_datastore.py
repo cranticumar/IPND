@@ -2,7 +2,7 @@
 
 class Users(ndb.Model):
     uname = ndb.StringProperty(indexed=False, required=True)
-    uname_lc = ndb.ComputedProperty(lambda self: self.uname.lower(), indexed=True)
+    uname_lc = ndb.ComputedProperty(lambda self: self.uname.lower(), indexed=True, repeated=False)
     pwd = ndb.StringProperty(indexed=False, required=True)
     nickname = ndb.StringProperty(indexed=False)
     created = ndb.DateTimeProperty(auto_now_add=True)

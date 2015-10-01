@@ -22,12 +22,15 @@ def validate_date(month, day, year):
                     return True
     return False
 
-def validate_uform_data(registration=False, **kw):
+def validate_uform_data(**kw):
     errors = list()
     alpha = string.ascii_lowercase
     caps_alpha = string.ascii_uppercase
     numbers = range(0, 10)
     special_char = ['@', '_']
+    if len(kw) != 5:
+        errors.append("Please fill all mandatory fields")
+        return False, errors
     for k, v in kw.items():
         if k == 'uname':
             if not set(v.split()).issubset(alpha + numbers):
@@ -44,12 +47,10 @@ def validate_uform_data(registration=False, **kw):
                     errors.append("Password required atleast one of the special characters - @, _")
             else:
                 errors.append("Password valid characters are alpha" + str(caps_alpha + numbers + special_char))
-    if registration and len(kw) != 5:
-        errors.append("Please fill all mandatory fields")
-        if kw.get('rpwd') != kw.get('pwd'):
-            errors.append("Passwords did not match")
-        if not tandc:
-            errors.append("Please agree to the Terms & Conditions")
+    if kw.get('rpwd') != kw.get('pwd'):
+        errors.append("Passwords did not match")
+    if not tandc:
+        errors.append("Please agree to the Terms & Conditions")
 
     if errors:
         return False, errors

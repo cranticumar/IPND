@@ -21,6 +21,7 @@
                 {% if user %}
                 <div class="userbar">
                     <b>{{ user }} logged in</b>
+                    <input type="button" name="logout" value="Logout">
                 </div>
                     <textarea type="text"
                               name="comment"
@@ -49,39 +50,46 @@
             </form>
         </div>
         <div class="application">
-            {% if home %}
-            {% if messages %}:
-            {% for msg in messages %}
-            <ul>
-                <li>{{ msg }}</li>
-            </ul>
-            {% endfor %}
-            {% endif %}
-            <form name="registration" action="/" method="POST" style="padding-top:25px; padding-left:25px">
-                <table>
-                    <tr>
-                        <td>User Name*:&emsp;</td>
-                        <td><input type="text" name="uname" placeholder="Choose your username"></td>
-                    </tr>
-                    <tr>
-                        <td>Password*:&emsp;</td>
-                        <td><input type="password" name="pwd" placeholder="Password"></td>
-                    </tr>
-                    <tr>
-                        <td>Retype Password*:&emsp;</td>
-                        <td><input type="password" name="rpwd" placeholder="Retype Your Password"></td>
-                    </tr>
-                    <tr>
-                        <td>Nick Name:&emsp;</td>
-                        <td><input type="text" name="nname" placeholder="Nick Name"></td>
-                    </tr>
-                </table><br>
-                &emsp;<input type="checkbox" name="tandc"> &nbsp; I agree to the terms and conditions<br><br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" name="create" value="Register">
-            </form>
-            {% else %}
+            {% if user %}
+                <form name="logout" action="/" method="post">
+                    &emsp;You are logged in as {{ user }}
+                    <input type="button" name="logout" value="Logout">
+                </form>
                 {% block content %}
                 {% endblock %}
+            {% else %}
+                {% if not home %}
+                    <b style="text-align:center;color:wheat;font-family:Tahoma">Please login to post comments and use applications</b>
+                {% endif %}
+                {% if messages %}:
+                {% for msg in messages %}
+                <ul>
+                    <li>{{ msg }}</li>
+                </ul>
+                {% endfor %}
+                {% endif %}
+                <form name="registration" action="/" method="post" style="padding-top:25px;padding-left:25px">
+                    <table>
+                        <tr>
+                            <td>User Name*:&emsp;</td>
+                            <td><input type="text" name="uname" placeholder="Choose your username"></td>
+                        </tr>
+                        <tr>
+                            <td>Password*:&emsp;</td>
+                            <td><input type="password" name="pwd" placeholder="Password"></td>
+                        </tr>
+                        <tr>
+                            <td>Retype Password*:&emsp;</td>
+                            <td><input type="password" name="rpwd" placeholder="Retype Your Password"></td>
+                        </tr>
+                        <tr>
+                            <td>Nick Name:&emsp;</td>
+                            <td><input type="text" name="nname" placeholder="Nick Name"></td>
+                        </tr>
+                    </table><br>
+                    &emsp;<input type="checkbox" name="tandc"> &nbsp; I agree to the terms and conditions<br><br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" name="create" value="Register">
+                </form>
             {% endif %}
         </div>
     </div>
