@@ -2,11 +2,11 @@
 
 class Users(ndb.Model):
     uname = ndb.StringProperty(indexed=False, required=True)
-    uname_lc = ndb.ComputedProperty(lambda self: self.uname.lower())
+    uname_lc = ndb.ComputedProperty(lambda self: self.uname.lower(), indexed=True)
     pwd = ndb.StringProperty(indexed=False, required=True)
     nickname = ndb.StringProperty(indexed=False)
     created = ndb.DateTimeProperty(auto_now_add=True)
-    lastlogin = ndb.DateTimeProperty(indexed=False)
+    lastlogin = ndb.DateTimeProperty(auto_now = True, indexed=False)
     access = ndb.StringProperty(choices=['admin', 'user'], required=True)
 
 class Posts(ndb.Model):
@@ -16,3 +16,4 @@ class Posts(ndb.Model):
 class Concepts(ndb.Model):
     concept = ndb.JsonProperty(indexed=True)
     created = ndb.DateTimeProperty(auto_now_add=True)
+    modified = ndb.DateTimeProperty(auto_now=True)

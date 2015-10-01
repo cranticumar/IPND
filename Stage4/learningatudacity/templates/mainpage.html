@@ -17,7 +17,7 @@
                 <p>{{ concept }}</p>
             </div>
             {% endfor %}
-            <form>
+            <form action="/" method="post">
                 {% if user %}
                 <div class="userbar">
                     <b>{{ user }} logged in</b>
@@ -27,13 +27,13 @@
                               id="post"
                               placeholder="Write your Valuable feedback"
                               maxlength="10000"></textarea>
-                    <input type="button" value="post">
+                    <input type="button" name="post" value="post">
                 {% else %}
                 <div class="userbar">
                     <b>Please login to post comments</b>
                     <input type="text" name="uname" placeholder="User Name">
                     <input type="password" name="pwd" placeholder="Password">
-                    <input type="button" value="Login">
+                    <input type="button" name="login" value="Login">
                 </div>
                 {% endif %}
                 {% if posts %}
@@ -50,11 +50,18 @@
         </div>
         <div class="application">
             {% if home %}
-            <form method="post" style="padding-top:25px; padding-left:25px">
+            {% if messages %}:
+            {% for msg in messages %}
+            <ul>
+                <li>{{ msg }}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+            <form name="registration" action="/" method="POST" style="padding-top:25px; padding-left:25px">
                 <table>
                     <tr>
                         <td>User Name*:&emsp;</td>
-                        <td><input type="text" name="uname" placeholder="choose your username"></td>
+                        <td><input type="text" name="uname" placeholder="Choose your username"></td>
                     </tr>
                     <tr>
                         <td>Password*:&emsp;</td>
@@ -62,15 +69,15 @@
                     </tr>
                     <tr>
                         <td>Retype Password*:&emsp;</td>
-                        <td><input type="password" name="pwd" placeholder="Retype Your Password"></td>
+                        <td><input type="password" name="rpwd" placeholder="Retype Your Password"></td>
                     </tr>
                     <tr>
                         <td>Nick Name:&emsp;</td>
-                        <td><input type="text" name="pwd" placeholder="Nick Name"></td>
+                        <td><input type="text" name="nname" placeholder="Nick Name"></td>
                     </tr>
                 </table><br>
                 &emsp;<input type="checkbox" name="tandc"> &nbsp; I agree to the terms and conditions<br><br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" value="Create User">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" name="create" value="Register">
             </form>
             {% else %}
                 {% block content %}

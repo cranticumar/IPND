@@ -2,9 +2,9 @@
 import jinja2
 import os
 import random
-from udacity_datastore import Concepts
-from google.appengine.ext import ndb
-from date_validation import validate_date
+import logging
+from udacity_datastore import *
+from data_validation import *
 
 templates_dir = os.path.join(os.path.dirname(__file__), "templates")
 concepts_dir = os.path.join(os.path.dirname(__file__), "concepts")
@@ -60,23 +60,41 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
+        logging.debug("I am in get")
         self.render("mainpage.html", templates = self.get_templates(), home=True)
 
     def post(self):
-        content = self.request.get("comment")
-        user = self.get_currentuser()
-        if user:
-            self.render("contentfeedback.html",
+        logging.debug("I am in post")
+        login = self.request.get("login")
+        create = self.request.get("create")
+        uname = self.request.get("uname")
+        pwd = self.request.get("pwd")
+        if login:
+            self.render("mainpage.html",
                         templates = self.get_templates(),
                         content = content,
                         user = user,
                         message = user + " logged in")
-        else:
-            self.render("contentfeedback.html",
+        elif create:
+            rpwd = self.request.get("rpwd")
+            nname = self.request.get("nname", default_value = uname.lower())
+            tandc = self.request.get("tandc")
+            input_validation, messages = validate_uform_data(registration = True,
+                                                           uname = uname,
+                                                           pwd = pwd,
+                                                           rpwd = rpwd,
+                                                           nname = nname,
+                                                           tandc = tandc)
+            if input_validation:
+                user = Users(uname = uname,
+                             pwd = pwd,
+                             nickname = nname,
+                             access = 'user')
+                user_key = user.put()
+            self.render("mainpage.html",
                         templates = self.get_templates(),
-                        content = content,
-                        user = user,
-                        message = "login to post comments")
+                        home = True,
+                        messages = messages)
 
 class ShoppingCart(Handler):
     def get(self):
