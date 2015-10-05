@@ -1,5 +1,6 @@
 ﻿import datetime
 import string
+import logging
 
 # List of Months in a year
 months = ["january", "february", "march", "april", "may", "june",
@@ -21,41 +22,6 @@ def validate_date(month, day, year):
                 if _check_for_future_date(year, month, day):
                     return True
     return False
-
-def validate_uform_data(**kw):
-    errors = list()
-    alpha = string.ascii_lowercase
-    caps_alpha = string.ascii_uppercase
-    numbers = range(0, 10)
-    special_char = ['@', '_']
-    if len(kw) != 5:
-        errors.append("Please fill all mandatory fields")
-        return False, errors
-    for k, v in kw.items():
-        if k == 'uname':
-            if not set(v.split()).issubset(alpha + numbers):
-                errors.append("Username accpets only [a-z],[0-9] characters")
-        elif k == 'pwd':
-            if set(v.split()).issubset(alpha + caps_alpha + numbers + special_char):
-                if not set(v.split()).intersection(alpha):
-                    errors.append("Password requies atleast one small letter")
-                elif not set(v.split()).intersection(alpha):
-                    errors.append("Password requies atleast one CAPITAL Letter")
-                elif not set(v.split()).intersection(numbers):
-                    errors.append("Password requires atleast one number")
-                elif not set(v.split()).intersection(special_char):
-                    errors.append("Password required atleast one of the special characters - @, _")
-            else:
-                errors.append("Password valid characters are alpha" + str(caps_alpha + numbers + special_char))
-    if kw.get('rpwd') != kw.get('pwd'):
-        errors.append("Passwords did not match")
-    if not tandc:
-        errors.append("Please agree to the Terms & Conditions")
-
-    if errors:
-        return False, errors
-    else:
-        return True, ["Registration Successful"]
 
 def _validate_year(year):
     """Validates year, if it is a year or not and it's range"""

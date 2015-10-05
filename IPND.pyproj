@@ -52,13 +52,13 @@
     <Content Include="Stage4\learningatudacity\concepts\3_Input Validation.txt" />
     <Content Include="Stage4\learningatudacity\concepts\1_Servers.txt" />
     <Content Include="Stage4\learningatudacity\css\style.css" />
+    <Content Include="Stage4\learningatudacity\templates\addcontent.html" />
     <Content Include="Stage4\learningatudacity\templates\mainpage.html" />
     <Content Include="Stage4\learningatudacity\templates\nav.html" />
     <Content Include="Stage4\learningatudacity\templates\validatedate.html" />
     <Content Include="Stage4\learningatudacity\templates\fizzbuzz.html" />
     <Content Include="Stage4\learningatudacity\templates\shoppingcart.html" />
     <Content Include="Stage4\learn.html" />
-    <Content Include="Stage4\learningatudacity\templates\admin.html" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
