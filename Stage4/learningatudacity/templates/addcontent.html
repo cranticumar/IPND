@@ -1,24 +1,9 @@
-﻿<!DOCTYPE html>
+﻿{% extends "mainpage.html" %}
 
-<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    {% include "nav.html" %}
-    <form method="post" id="addcontent">
-        <input type="text" name="title" placeholder="Title of the Concept"><br><br>
-        <textarea type="text" maxlength="1000000000" name="concept" placeholder="Explain the Concept"></textarea><br>
-        Magic Word: <input type="text" name="magicword" placeholder="Please enter Magic word" style="max-width:200px">
-        {% if magicword and not magicword == "cranticumar" %}
-        <b style="color:red">{{ error }}</b>
-        {% elif error %}
-        <b style="color:green">{{ error }}</b>
-        {% endif %}
-        <input type="submit" value="Add Content to Database">
-    </form>
-</body>
-</html>
+{% block content %}
+    <b>Tips to Add Content</b>
+    <ul style="text-align:left">
+        <li>This is not rich text editor, all the markups are required</li>
+        <li>You need to know the magic word to add the content</li>
+    </ul>
+{% endblock %}

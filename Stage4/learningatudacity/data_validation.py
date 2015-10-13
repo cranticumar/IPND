@@ -1,6 +1,7 @@
 ﻿import datetime
 import string
 import logging
+import re
 
 # List of Months in a year
 months = ["january", "february", "march", "april", "may", "june",
@@ -11,6 +12,51 @@ present = datetime.date.today()
 present_year = present.year
 present_month = present.month
 present_day = present.day
+
+def validate_signupform(**kw):
+    errors = dict()
+    alpha = list(string.ascii_lowercase)
+    caps_alpha = list(string.ascii_uppercase)
+    numbers = list('0123456789')
+    special_char = ["@", "_", "-", "^", "."]
+    for k, v in kw.items():
+        if k == "uname":
+            if not set(list(v)).issubset(alpha + numbers):
+                errors["error_username"] = "Username accpets only [a-z],[0-9] characters"
+        elif k == "pwd":
+            if set(list(v)).issubset(alpha + caps_alpha + numbers + special_char):
+                if not set(list(v)).intersection(alpha):
+                    errors["error_password"] = "Password requies atleast one small letter"
+                elif not set(list(v)).intersection(alpha):
+                    errors["error_password"] = "Password requies atleast one CAPITAL Letter"
+                elif not set(list(v)).intersection(numbers):
+                    errors["error_password"] = "Password requires atleast one number"
+                elif not set(list(v)).intersection(special_char):
+                    errors["error_password"] = "Password required atleast one of the special characters - @, _"
+            else:
+                errors["error_password"] = "Password valid characters are alpha" + str(caps_alpha + alpha + numbers + special_char)
+    if kw.get("verify") != kw.get("pwd"):
+        errors["error_verify"] = "Passwords did not match"
+    if kw.get("email"):
+        if not re.match('[a-z0-9\.\_].*@[a-z0-9].*\.[a-z0-9].*', kw.get("email")):
+            errors["error_email"] = "Not a valid email address"
+
+    return errors
+
+
+def rot13cipher(text):
+    content = list(text)
+    smallalpha = list(string.ascii_lowercase)
+    alpha = list(string.ascii_uppercase)
+    ciphered_text = ''
+    for letter in content:
+        if letter in smallalpha:
+            ciphered_text += smallalpha[(smallalpha.index(letter) + 13) % len(smallalpha)]
+        elif letter in alpha:
+            ciphered_text += alpha[(alpha.index(letter) + 13) % len(alpha)]
+        else:
+            ciphered_text += letter
+    return ciphered_text
 
 def validate_date(month, day, year):
     """take the input and check if it is a valid day by validating its month, day and year"""

@@ -1,43 +1,33 @@
 ﻿import webapp2
 import jinja2
 import os
+import re
 import random
 import logging
 from udacity_datastore import *
 from data_validation import *
+from template_creation import generate_htmlstring
 
-templates_dir = os.path.join(os.path.dirname(__file__), "templates")
-concepts_dir = os.path.join(os.path.dirname(__file__), "concepts")
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(templates_dir),
+TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(TEMPLATES_DIR),
+                               extensions = ['jinja2.ext.autoescape'],
                                autoescape = "true")
 
-areas = list()
-userposts = list()
+areas = []
+userposts = []
+lastconcept = Concepts.query(Concepts.last == True).get()
 
-for each in os.walk(concepts_dir):
-    for concept in each[2]:
-        if os.path.splitext(concept)[1] == '.txt':
-            fh = open(os.path.join(each[0], concept))
-            fcontent = fh.read()
-            fh.close()
-            t_c_tup = (os.path.splitext(concept)[0].replace('_','.'), fcontent)
-            records_count = Concepts.query().filter(Concepts.concept == {t_c_tup[0] : t_c_tup[1]}).count()
-            if records_count == 0:
-                tmp = Concepts(concept = {t_c_tup[0] : t_c_tup[1]})
-                tmp.put()
-            elif records_count > 1:
-                tmp = Concepts.query(Concepts.concept == {t_c_tup[0] : t_c_tup[1]}).get()
-                tmp.key.delete()
+while lastconcept and not lastconcept.key.parent() is None:
+    areas.insert(0, lastconcept)
+    lastconcept = lastconcept.key.parent().get()
 
-for each in Concepts.query():
-    if not each.concept.items()[0] in areas:
-        areas.append(each.concept.items()[0])
+if lastconcept:
+    areas.insert(0, lastconcept)
 
 for each in Posts.query():
     if not each.post in userposts:
         userposts.append((str(each.posted_on), each.user, each.post))
 
-areas.sort()
 userposts.sort()
 
 class Handler(webapp2.RequestHandler):
@@ -66,9 +56,6 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
-        logging.debug("I am in get")
-        if self.request.get("create"):
-            self.post()
         self.render("mainpage.html", templates = self.get_templates(), home=True, user = Handler.CURRENT_USER)
 
     def post(self):
@@ -115,24 +102,42 @@ class ValidateDate(Handler):
             self.render("validatedate.html", templates = self.get_templates(),
                         month = month, day = day, year = year, message = "Invalid Day", col = "red")
 
-class Admin(Handler):
+class ROT13Cipher(Handler):
     def get(self, **kw):
-        self.render("addcontent.html", templates = self.get_templates(), **kw)
+        self.render("rot13cipher.html", templates = self.get_templates(), val = self.request.get("text"))
+
+    def post(self):
+        text_to_encrypt = self.request.get("text") if self.request.get("text") else None
+        encrypted_text = rot13cipher(text_to_encrypt) if text_to_encrypt else ""
+        self.render("rot13cipher.html", templates = self.get_templates(),
+                    val = encrypted_text)
+
+class AddContent(Handler):
+    def get(self):
+        self.render("addcontent.html", templates = self.get_templates(), contentadd = True)
 
     def post(self):
         if self.request.get("magicword"):
             title = self.request.get("title")
             concept = self.request.get("concept")
             if title == "" or concept == "":
-                self.render("addcontent.html", templates = self.get_templates(), error = "Please add both title and Concept")
+                self.render("addcontent.html", templates = self.get_templates(), error = "Please add both title and Concept", contentadd = True)
             else:
-                self.render("addcontent.html", templates = self.get_templates(), error = "Concept added to database")
+                prnt = Concepts.query(Concepts.last == True).get()
+                tmp = Concepts(concept = generate_htmlstring(title, concept), title = title, last=True)
+                if not prnt is None: 
+                    tmp.parent = prnt.key
+                    prnt.last=False
+                    prnt.put()
+                tmp.put()
+                self.redirect("/addcontent")
         else:
-            self.render("addcontent.html", templates = self.get_templates(), error = "You need right Magic word to add content")
+            self.render("addcontent.html", templates = self.get_templates(), error = "You need right Magic word to add content", contentadd = True)
 
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/mainpage', MainPage),
                                ("/validatedate", ValidateDate),
                                ("/shoppingcart", ShoppingCart),
                                ("/fizzbuzz", FizzBuzz),
-                               ("/admin", Admin)], debug=True)
+                               ("/addcontent", AddContent),
+                               ("/rot13cipher", ROT13Cipher)], debug=True)

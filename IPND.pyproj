@@ -48,9 +48,9 @@
     <Content Include="Stage3\Python\support_files\turtle.png" />
     <Content Include="Stage3\Python\support_files\turtle_flower.png" />
     <Content Include="Stage4\learningatudacity\app.yaml" />
-    <Content Include="Stage4\learningatudacity\concepts\2_Templates and Abstraction.txt" />
-    <Content Include="Stage4\learningatudacity\concepts\3_Input Validation.txt" />
-    <Content Include="Stage4\learningatudacity\concepts\1_Servers.txt" />
+    <Content Include="Stage4\learningatudacity\media\htmlelement.jpg" />
+    <Content Include="Stage4\learningatudacity\templates\signup.html" />
+    <Content Include="Stage4\learningatudacity\templates\test.html" />
     <Content Include="Stage4\learningatudacity\css\style.css" />
     <Content Include="Stage4\learningatudacity\templates\addcontent.html" />
     <Content Include="Stage4\learningatudacity\templates\mainpage.html" />
@@ -59,9 +59,12 @@
     <Content Include="Stage4\learningatudacity\templates\fizzbuzz.html" />
     <Content Include="Stage4\learningatudacity\templates\shoppingcart.html" />
     <Content Include="Stage4\learn.html" />
-    <Content Include="TextFile1.txt" />
+    <Content Include="Stage4\learningatudacity\templates\rot13cipher.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="future_additions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Stage2\html_generator.py" />
     <Compile Include="Project_Euler\project_euler_9.py" />
     <Compile Include="Project_Euler\project_euler_8_largest_product_in_series.py" />
@@ -117,6 +120,9 @@
     <Compile Include="Stage4\learningatudacity\data_validation.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Stage4\learningatudacity\template_creation.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Stage4\learningatudacity\udacity_datastore.py">
       <SubType>Code</SubType>
     </Compile>
@@ -147,8 +153,8 @@
     <Folder Include="Stage3\Python\support_files\rename_problems\" />
     <Folder Include="Stage4\learningatudacity\" />
     <Folder Include="Stage4\learningatudacity\css\" />
-    <Folder Include="Stage4\learningatudacity\concepts\" />
     <Folder Include="Stage4\learningatudacity\templates\" />
+    <Folder Include="Stage4\learningatudacity\media\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />

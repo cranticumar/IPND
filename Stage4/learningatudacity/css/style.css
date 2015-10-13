@@ -1,4 +1,11 @@
-﻿body {
+﻿* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+body {
     margin: 0px;
 }
 
@@ -7,8 +14,7 @@ nav {
     background-color : #444;
     height: 40px;
     text-align: center;
-    padding-top: 0px;
-    margin: 0px;
+    position: fixed;
 }
 
 nav ul {
@@ -53,16 +59,63 @@ nav ul li a:active {
 .content {
     display: flex;
     flex-flow: row nowrap;
-    align-content: center;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: 15px;
+    margin-top: 50px;
+}
+
+.subnav {
+    order: 1;
+    width: 12%;
+    height: 90%;
+    /*position:fixed;*/
+    background-color: #CCCCFF;
+    color: #000000;
+    border-radius: 2%;
+    font-family: Tahoma;
+}
+
+.subnav ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    /*margin: 0;*/
+    text-align: center;
+
+}
+
+.subnav ul li {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.subnav ul li a {
+    font: 16px arial, verdana;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 .read {
-    order: 0;
-    width: 70%;
-    padding-right: 10px;
+    order: 1;
+    width: 55%;
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+}
+
+.application {
+    order: 1;
+    width: 27%;
+    background-color: #CCCCFF;
+    padding: 20px;
+    position:fixed;
+    color: #000000;
+    border-radius: 2%;
+    font-family: Tahoma;
+    height: 85%;
 }
 
 .concept {
@@ -70,25 +123,17 @@ nav ul li a:active {
     margin-bottom: 15px;
     border: 1px solid #e1e1e1;
     padding: 1.1rem;
-}
-
-.concept p{
-    color: #222;
     font-family: Roboto, sans-serif;
     font-size: 14px;
     line-height: 1.625;
+    max-width: 100%;
 }
 
-.application {
-    order: 1;
-    width: 30%;
-    background-color: #CCCCFF;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: #000000;
-    padding-top: 14px;
-    border-radius: 2%;
-    font-family: Tahoma;
+.concept p {
+    text-align: left;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
 }
 
 textarea#post {
@@ -113,21 +158,59 @@ h3 {
     font-size: medium;
 }
 
-#addcontent {
+.addcontent {
     padding-top: 30px;
     text-align: center;
 }
 
-#addcontent input[type=text] {
-    width: 80%;
+.addcontent input[type=text] {
+    width: 90%;
     font-size: large;
     font-family: Tahoma;
     text-align: center;
 }
 
-#addcontent textarea {
-    width: 80%;
+.addcontent textarea {
+    width: 90%;
     height: 500px;
     font-size: medium;
     font-family: Tahoma;
+}
+
+h4 {
+   color : green;
+   font-weight: bold;
+   text-align: left;
+   margin-bottom: 10px;
+   margin-top: 10px;
+}
+
+.centeredimage {
+    text-align: center;
+}
+
+.specialwords {
+   color: #0c65a5;
+   font-style: italic;
+   font-weight: bold;
+}
+
+table, td, th {
+    border: 1px solid green;
+}
+
+th {
+    background-color: #1C4032;
+    color: white;
+    text-align: center;
+}
+
+td {
+   padding-right: 10px;
+   text-align: justify;
+}
+
+table {
+   margin-top: 10px;
+   margin-bottom: 10px;
 }

@@ -1,0 +1,110 @@
+﻿<b>Before really understanding what python is, we shall try to understand what a programming language is.</b>
+<h4>PROGRAMMING LANGUAGE</h4>
+
+Language is basically used for communication. An example of language is English. But if we start talking to computer in general languages, it would take pages to do a small task.<br>
+Another greater problem is ambiguity present in generally spoken languages, which computers might misinterpret. <br>
+So, all languages that we can talk to computers are made of strict grammar called Syntaxes (or) Instructions. <br>
+So Programming Language is nothing but a set of instructions, that a computer can understand. <br>
+Different Programming Languages are - Assembly Level Language, C, C Plus Plus, Java, Python, Perl, HTML and so on. <br><br>
+<b>One liners about each type of languages:</b>
+<ul>
+    <li>Assembly Level Languages - Close to hardware, instructions are straight to hardware - may take many instrcutions to complete a task</li>
+    <li>Compiler based Languages - C, C PLUS PLUS - Basic of all languages - Needs to be compiled from platform to platform</li>
+    <li>Byte Code based Languages - Java, Python - These languages form byte code which runs on virtual platform, once this virtual platform is available, it can run on any platform. This virtual platform will convert the instructions in such a way that underlying platform can understand</li>
+    <li>Interpreter based Languages - They get interpreted on the go.</li>
+    <li>Markup Languages/Style Languages - they are used for looks/styling</li>
+</ul>
+<br>
+Processor processes the instructions provided. Fastness of the processor depends on its number of cycles that it can clock in a second (or) number of instructions that can process in a second.
+
+<h4>PYTHON</h4>
+
+Python is modern programming language. It is very efficient. Difference between C-Style and Python is that Python do not have flower braces to tell about where a block is starting and ending. It strictly depends on intendation. So intendation is very important in Python compared to any other language. If there are any set of instructions that needs to be repeated, its better to be written as procedure or function. Syntax for defining a procedure in Python is <span class="specialwords">def</span>. Python cam store data in differnt types - Data types.<br>
+<ul>
+    <li>strings - str</li>
+    <li>lists - list</li>
+    <li>dictionary - dict</li>
+</ul>
+Another most common and important thing is "assignment". Everyone is human, but everyone has name. There can be many strings, but to call that string for re-use, it needs to be assigned to a variable. Please avoid using syntax itself as variable name. Anything can be assigned to a variable by using equals operator. (=)
+
+<h4>STRINGS</h4>
+
+Strings are immutable datatype, once assigned cannot be altered, but can be re-assigned. Strings are sequence of characters. Each character can be accessed by indices, which range from 0 to one less than length of the string. Length of the string is nothing but number of characters inside the string. Strings will be assigned to variable with characters mentioned within single quotes or double quotes based on situation<br>
+<br>
+For example <span class="specialwords">example = "I am String"</span> <br>
+Length of the example can be found by <span class="specialwords">len(example)</span>, which will be 11 in this case. <br>
+Induvidual characters (or) multiple characters can be accessed by using indices:
+<ul>
+    <li><span class="specialwords">example[0]</span> will return I</li>
+    <li><span class="specialwords">example[10]</span> will return g</li>
+    <li><span class="specialwords">example[0:9] or example[:9]</span> will return "I am Strin"</li>
+    <li><span class="specialwords">example[1:9]</span> will return " am Strin"</li>
+    <li><span class="specialwords">example[11]</span> will return an error</li>
+    <li><span class="specialwords">example[-1]</span> will also return "g". This is called reverse access, which can be done by using negative indices</li>
+</ul>
+<br>
+To find part of the string or character in a string, there is built-in function in String. That is <span class="specialwords">find()</span>. <span class="specialwords">find()</span> accepts two inputs at the maximum. First input is "character(s)" to find in mother string and second input is index offset from where the search has to be started. Output would be the index, if the character(s) are found or -1 if not found. It also returns only first instance of occurance from the point of search.<br>
+<span class="specialwords">example.find('i', 1)</span> will return 8
+
+<h4>LISTS</h4>
+
+As you have already gone through Strings, I would like to explain lists in comparison with strings. Unlike Strings, Lists are mutable datatype. As name specifies the meaning, it is list or an array or collection of items. Each induvidually can again be of different datatypes. There is no find function for Lists in Python. To find items in list, there are other ways which you will read in sections.<br>
+Here is how list looks like and is assigned, <span class="specialwords">li = [1, 'abc', ['def', 4]]</span>
+<br>
+Like Strings, List items also are accessed by using indices.
+<ul>
+    <li>li[0] will return 1</li>
+    <li>li[1] will return 'abc'</li>
+    <li>li[2] will return list - ['def', 4]</li>
+    <li>li[2][0] will return 'def'</li>
+    <li>li[2][2] will return IndexError</li>
+</ul>
+<br>
+Easy way to check if an item is list or not is by <span class="specialwords">item in list</span>. If item exists, it will return True else False.<br>
+<ul>
+    <li><span class="specialwords">1 in li</span>will return True (True is Boolean 1)</li>
+    <li><span class="specialwords">['def', 4] in li</span>will return True (True is Boolean 1)</li>
+    <li><span class="specialwords">['def', 10] in li</span>will return False (True is Boolean 0)</li>
+</ul>
+<br>
+You can alter items of the list by using their indices, li[0] = 10, now li will be li = [10, 'abc', ['def', 4]]. One can add new items also using the same, but append is preferred for adding new items
+<br>
+One can use append items to the list using append function. li.append(15), now li will be [10, 'abc', ['def', 4], 15]
+
+<h4>DICTIONARIES</h4>
+
+I will describe differences between List and Dictionary here. As name suggests, it is mapping of elements. Like a language dictionary, where you have a word and meaning, here we have key and value. Lists access their elements by indices, dictionaries access by using their keys, hence might return key errors in case if unknown/undefined key is accessed. <br><br>
+<span class="specialwords">d = {'key1': 1, 'key2': 2}</span>
+<br>
+An item can be added to dictionary by <span class="specialwords">d['key3'] = 3</span> (or) by using update function <span class="specialwords">d.update({'key4': 4})</span>
+<br><br>
+Search can done using keys, <span class="specialwords">'key1' in d</span> will return True if 'key1' exists in d, else False
+
+<h4>Basic Operations, Expressions and Conditional blocks</h4>
+
+<ul>
+    <li>All basic arthematic operations can be done by using +, - , * (multiply), / (quotient), % (reminder/modulus)</li>
+    <li>Comparison operators are == (equals), =< (less than or equals) and >= (greater than equals)</li>
+    <li>Using + operator on two strings/lists will result in concatenation, does not work on dictionaries</li>
+    <li>Using * operator on String/Dictionary will append by respective number of times</li>
+    <li>Expression syntax is "Expression/variable operator Expression/variable e.g. 2 > 3</li>
+</ul>
+<br>
+Conditional blocks - as name says all, a block of code is executed based of conditions result. Check out of if-else in python examples in Google (or) check out <span class="specialwords">html_generator.py</span> in the git repository
+
+<h4>4.4 LOOPS</h4>
+
+As you have gone through if-else conditional blocks, I will make a comparisions to describe what loops are and why they are useful. Main disadvantage for if-else blocks are they can execute the code only once and then exist, say for example you want to repeat same operations on all items in list, you might want loop same logic on all items, which is not possible through if-else blocks solely. Refer to examples in git repository (inside Python folder). There are two ways of loops - <span class="specialwords">for</span> and <span class="specialwords">while</span>. For loops edge over the while loops, as you might need an extra variable to traverse through lists, as index is used in while loop, which needs to incremented as we execute, which is not required in for loops. There are cases where you might need a variable in both for and while loops - e.g. count number of times, the code has been looped.
+
+<h4>4.5 Procedures (or) Functions</h4>
+
+Procedure or functions are generally written to avoid repetition. Say for example you have 10 lists and you want to check if a string exists in any of the 10 lists or not. We can write a logical code to search for a string in one list and then put that code in one function, then call that function by passing each list as an input and also string to search as another input.<br><br>
+Few inputs that might be helpful to evryone are:
+<ul>
+    <li>Always break your problem in small pieces</li>
+    <li>Implement smaller logics and then optimize them</li>
+    <li>Test them as and when you write and complete small blocks of code</li>
+    <li>Think and Develop test data, so that you can access/test all lines of code by using your test inputs</li>
+    <li>Use traceback to debug it</li>
+    <li>Go through python documentation (mentioned in TIPS section) for more details on any area of python while debugging</li>
+</ul>

@@ -1,0 +1,10 @@
+﻿{% extends "mainpage.html" %}
+{% block content %}
+<form method="post">
+    <input type="text" placeholder="Username" name="username" value="{{ username }}"> <br> {{ error_username }}
+    <input type="password" placeholder="Password" name="password"> <br> {{ error_password }}
+    <input type="password" placeholder="Retype password" name="verify"> <br> {{ error_verify }}
+    <input type="text" placeholder="Email" name="email" value="{{ email }}"> <br> {{ error_email }} <br>
+    <input type="submit" value="Register">
+</form>
+{% endblock %}

@@ -6,6 +6,8 @@ class Posts(ndb.Model):
     posted_on = ndb.DateTimeProperty(auto_now=True, indexed=True)
 
 class Concepts(ndb.Model):
-    concept = ndb.JsonProperty(indexed=True)
+    title = ndb.StringProperty(indexed=False, required=True)
+    concept = ndb.TextProperty(indexed=False, required = True)
     created = ndb.DateTimeProperty(auto_now_add=True)
     modified = ndb.DateTimeProperty(auto_now=True)
+    last = ndb.BooleanProperty(required = True)
