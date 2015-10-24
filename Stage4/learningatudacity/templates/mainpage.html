@@ -1,6 +1,4 @@
 ﻿<!DOCTYPE html>
-
-<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,20 +8,37 @@
 <body>
     {% include "nav.html" %}
     <div class="content">
-        <div class="subnav">
-            <ul>
-                {% for ar in areas %}
-                <li><a href="#{{ ''.join(ar.title.lower().split()) }}">{{ ar.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
         <div class="read">
-            {% if not contentadd %}
-            {% for area in areas %}
+            {% if displayconcept %}
             {% autoescape false %}
-            {{ area.concept }}
+            {{ displayconcept.concept }}
             {% endautoescape %}
-            {% endfor %}
+            {% endif %}
+            {% if not contentadd %}
+            <div id="content-slider">
+                <div id="slider">
+                    <div id="mask">
+                        <ul>
+                            {% for area in areas %}
+                            {% autoescape false %}
+                            <li id="id{{ areas.index(area) }}" style="-moz-animation:cycle{{ areas.index(area) }} 60s linear infinite;-webkit-animation:cycle{{ areas.index(area) }} 60s linear infinite;">
+                                {{ area.concept }}
+                                <div class="abt">
+                                    <h1>{{ area.title }}</h1>
+                                </div>
+                            </li>
+                            {% endautoescape %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+            <br>
+            <div style="text-transform:capitalize;text-align:center;font-weight:bolder;font-size:20px">
+                <marquee behavior="scroll" direction="left">Hover over to pause the Slideshow</marquee>
+            </div>
+            <br>
             <b>Comments are:</b><br>
             {% if posts %}
             <ul style="list-style:none;">
@@ -59,12 +74,30 @@
                 <b style="color:red;">Please enter your name</b>
                 {% endif %}
             </form>
-            {% if not home %}
-            <div style="border-radius:5px;border: 1px solid #000;padding:10px;margin-bottom:10px;max-height:70%;overflow:auto;">
+            <div style="border-radius:5px;border: 1px solid #000;padding:10px;margin-bottom:10px;margin-top:10px;max-height:70%;overflow:auto;">
+                {% if not home %}
                 {% block content %}
                 {% endblock %}
+                {% else %}
+                <form>
+                    Want to read a specific Topic:
+                    <select name="topic">
+                        {% for area in areas %}
+                        <option value="" hidden selected disabled></option>
+                        <option value="{{ area.title }}">{{ area.title }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" name="getmetopic" value="Fetch">
+                </form>
+                <form>
+                    <div style="text-align:center;padding:50px;">
+                        <button type="submit" name="surpriseme" value="true" style="background-color:transparent;border:none;cursor:pointer">
+                            <img src="/media/surpriseme1.jpg" alt="surpriseme!!!">
+                        </button>
+                    </div>
+                </form>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
 </body>

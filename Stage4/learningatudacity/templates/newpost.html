@@ -1,0 +1,15 @@
+﻿{% extends "blog.html" %}
+
+{% block sub %}
+<form method="post" style="width:100%;height:60px;text-align:center">
+    <input type="text" name="subject" placeholder="Write Subject/Title here" value="{{ title }}"
+           style="width:50%;"><br><br>
+    <textarea id="post" type="text" name="content" value="{{post}}"
+              placeholder="Write Description here please"
+              style="width:50%;height:200px;"></textarea><br><br>
+    {% if error %}
+    {{ error }}
+    {% endif %}
+    <input type="submit" name="addnewpost" value="Submit">
+</form>
+{% endblock %}

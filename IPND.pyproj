@@ -48,7 +48,11 @@
     <Content Include="Stage3\Python\support_files\turtle.png" />
     <Content Include="Stage3\Python\support_files\turtle_flower.png" />
     <Content Include="Stage4\learningatudacity\app.yaml" />
+    <Content Include="Stage4\learningatudacity\css\animation.css" />
     <Content Include="Stage4\learningatudacity\media\htmlelement.jpg" />
+    <Content Include="Stage4\learningatudacity\media\surpriseme.jpg" />
+    <Content Include="Stage4\learningatudacity\templates\blog.html" />
+    <Content Include="Stage4\learningatudacity\templates\newpost.html" />
     <Content Include="Stage4\learningatudacity\templates\signup.html" />
     <Content Include="Stage4\learningatudacity\templates\test.html" />
     <Content Include="Stage4\learningatudacity\css\style.css" />
@@ -60,6 +64,7 @@
     <Content Include="Stage4\learningatudacity\templates\shoppingcart.html" />
     <Content Include="Stage4\learn.html" />
     <Content Include="Stage4\learningatudacity\templates\rot13cipher.html" />
+    <Content Include="Stage4\learningatudacity\templates\welcome.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="future_additions.py">
@@ -114,6 +119,9 @@
     </Compile>
     <Compile Include="Stage3\Python\fresh_tomatoes.py" />
     <Compile Include="Stage3\Python\twilio_sms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage4\learningatudacity\crypto.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Stage4\learningatudacity\learningatudacity.py" />

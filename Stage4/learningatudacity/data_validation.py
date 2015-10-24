@@ -2,6 +2,7 @@
 import string
 import logging
 import re
+from udacity_datastore import *
 
 # List of Months in a year
 months = ["january", "february", "march", "april", "may", "june",
@@ -15,34 +16,42 @@ present_day = present.day
 
 def validate_signupform(**kw):
     errors = dict()
-    alpha = list(string.ascii_lowercase)
-    caps_alpha = list(string.ascii_uppercase)
-    numbers = list('0123456789')
-    special_char = ["@", "_", "-", "^", "."]
-    for k, v in kw.items():
-        if k == "uname":
-            if not set(list(v)).issubset(alpha + numbers):
-                errors["error_username"] = "Username accpets only [a-z],[0-9] characters"
-        elif k == "pwd":
-            if set(list(v)).issubset(alpha + caps_alpha + numbers + special_char):
-                if not set(list(v)).intersection(alpha):
-                    errors["error_password"] = "Password requies atleast one small letter"
-                elif not set(list(v)).intersection(alpha):
-                    errors["error_password"] = "Password requies atleast one CAPITAL Letter"
-                elif not set(list(v)).intersection(numbers):
-                    errors["error_password"] = "Password requires atleast one number"
-                elif not set(list(v)).intersection(special_char):
-                    errors["error_password"] = "Password required atleast one of the special characters - @, _"
-            else:
-                errors["error_password"] = "Password valid characters are alpha" + str(caps_alpha + alpha + numbers + special_char)
-    if kw.get("verify") != kw.get("pwd"):
+    password_elist = list()
+    if not (kw.get("uname") and re.match("^[a-z0-9_\.]{5,20}$", kw.get("uname"))):
+        errors["error_username"] = "That is an invalid username"
+    elif Users.get_by_username(kw.get("uname")):
+        errors["error_username"] = "User already exists"
+
+    if not (kw.get("disname") and re.match("^[a-zA-Z]{3,20}$", kw.get("disname"))):
+        errors["error_dispname"] = "That is an invalid name"
+
+    if not (kw.get("pwd") and re.match("^.{5,10}$", kw.get("pwd"))):
+        password_elist.append("Character Limit of 5 (min) - 10 (max)")
+    if not (re.match(".*[a-z].*", kw.get("pwd"))):
+        password_elist.append("Password must contain atleast 1 small alphabet")
+    if not (re.match(".*[A-Z].*", kw.get("pwd"))):
+        password_elist.append("Password must contain atleast 1 Capital Letter")
+    if not (re.match(".*[0-9].*", kw.get("pwd"))):
+        password_elist.append("Password must contain atleast 1 number")
+
+    if password_elist:
+        errors["error_password"] = password_elist
+
+    if not (kw.get("verify") and kw.get("verify") == kw.get("pwd")):
         errors["error_verify"] = "Passwords did not match"
+
     if kw.get("email"):
-        if not re.match('[a-z0-9\.\_].*@[a-z0-9].*\.[a-z0-9].*', kw.get("email")):
-            errors["error_email"] = "Not a valid email address"
+       if not re.match("^[\S]+@[\S]+\.[\S]+$", kw.get("email")):
+           errors["error_email"] = "Not a valid email address"
 
     return errors
 
+def validate_loginform(**kw):
+    errors = dict()
+    usr = Users.login(kw.get("uname"), kw.get("pwd"))
+    if usr is None:
+        errors["error_login"] = "Login failed"
+    return errors
 
 def rot13cipher(text):
     content = list(text)

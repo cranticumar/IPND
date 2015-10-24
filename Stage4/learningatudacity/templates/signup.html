@@ -1,10 +1,121 @@
-﻿{% extends "mainpage.html" %}
-{% block content %}
-<form method="post">
-    <input type="text" placeholder="Username" name="username" value="{{ username }}"> <br> {{ error_username }}
-    <input type="password" placeholder="Password" name="password"> <br> {{ error_password }}
-    <input type="password" placeholder="Retype password" name="verify"> <br> {{ error_verify }}
-    <input type="text" placeholder="Email" name="email" value="{{ email }}"> <br> {{ error_email }} <br>
-    <input type="submit" value="Register">
-</form>
-{% endblock %}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    {% include "nav.html" %}
+    {% if already_logged_in %}
+    <div style="margin: 10% 40% 25% 40%;background-color:#f1f1f1;color:black;border-radius:2%;">
+        <form method="post" class="userforms">
+            <span style="float:left;">
+                You are already logged in
+            </span>
+            <span style="float:right">
+                <input type="submit" name="logout" value="logout"><br>
+            </span>
+        </form>
+    </div>
+    {% else %}
+    <div class="content" style="display:inline-flex">
+        <div style="margin: 10% 0% 25% 10%;background-color:#f1f1f1;color:black;border-right:2px solid;border-top-left-radius:2%; border-bottom-left-radius:2%">
+            <form method="post" class="userforms">
+                <div style="text-align:center;align-content:center;font:bold 20px medium;padding:30px;">
+                    SignUp
+                </div>
+                <div style="font-family: Verdana, Geneva, sans-serif;font-size:12px;font-weight:bold;color:red;text-align:center">
+                    {{ error_general }}
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            Call me as*:
+                        </td>
+                        <td class="field">
+                            <input type="text" placeholder="Your name" name="dispname" value="{{ dispname }}">
+                            <br> {{ error_dispname }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Name*:
+                        </td>
+                        <td class="field">
+                            <input type="text" placeholder="Username" name="username" value="{{ username }}">
+                            <br> {{ error_username }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password*:
+                        </td>
+                        <td class="field">
+                            <input type="password" placeholder="Password" name="password">
+                            {% for each in error_password %}
+                            <br> {{ each }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Re-enter Password*:
+                        </td>
+                        <td class="field">
+                            <input type="password" placeholder="Retype password" name="verify">
+                            <br> {{ error_verify }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email:
+                        </td>
+                        <td class="field">
+                            <input type="text" placeholder="Email" name="email" value="{{ email }}">
+                            <br> {{ error_email }}
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div style="text-align:center">
+                    <input type="submit" value="Register" name="signup">
+                </div>
+            </form>
+        </div>
+        <div style="margin: 10% 0% 25% 0%;background-color:#f1f1f1;color:black;border-bottom-right-radius:2%; border-top-right-radius:2%">
+            <form method="post" class="userforms">
+                <div style="text-align:center;align-content:center;font:bold 20px medium;padding:30px;">
+                    Login
+                </div>
+                <br>
+                <div style="font-family: Verdana, Geneva, sans-serif;font-size:12px;font-weight:bold;color:red;text-align:center">
+                    {{ error_login }}
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            User Name:
+                        </td>
+                        <td class="field">
+                            <input type="text" placeholder="Username" name="username" value="{{ username }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password:
+                        </td>
+                        <td class="field">
+                            <input type="password" placeholder="Password" name="password">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div style="text-align:center">
+                    <input type="submit" value="Login" name="login">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</body>
