@@ -161,6 +161,19 @@ h4 {
    font-weight: bold;
 }
 
+form {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.posts {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    padding:10px;
+}
+
 table td,th{
     border: 1px solid green;
     margin-top: 10px;

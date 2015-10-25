@@ -84,37 +84,7 @@
             </form>
         </div>
         <div style="margin: 10% 0% 25% 0%;background-color:#f1f1f1;color:black;border-bottom-right-radius:2%; border-top-right-radius:2%">
-            <form method="post" class="userforms">
-                <div style="text-align:center;align-content:center;font:bold 20px medium;padding:30px;">
-                    Login
-                </div>
-                <br>
-                <div style="font-family: Verdana, Geneva, sans-serif;font-size:12px;font-weight:bold;color:red;text-align:center">
-                    {{ error_login }}
-                </div>
-                <table>
-                    <tr>
-                        <td>
-                            User Name:
-                        </td>
-                        <td class="field">
-                            <input type="text" placeholder="Username" name="username" value="{{ username }}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Password:
-                        </td>
-                        <td class="field">
-                            <input type="password" placeholder="Password" name="password">
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <div style="text-align:center">
-                    <input type="submit" value="Login" name="login">
-                </div>
-            </form>
+            {% include "loginform.html" %}
         </div>
     </div>
     {% endif %}

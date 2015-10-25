@@ -52,6 +52,7 @@
     <Content Include="Stage4\learningatudacity\media\htmlelement.jpg" />
     <Content Include="Stage4\learningatudacity\media\surpriseme.jpg" />
     <Content Include="Stage4\learningatudacity\templates\blog.html" />
+    <Content Include="Stage4\learningatudacity\templates\loginform.html" />
     <Content Include="Stage4\learningatudacity\templates\newpost.html" />
     <Content Include="Stage4\learningatudacity\templates\signup.html" />
     <Content Include="Stage4\learningatudacity\templates\test.html" />

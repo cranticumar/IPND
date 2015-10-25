@@ -9,6 +9,12 @@
     {% include "nav.html" %}
     <div class="content">
         <div class="read">
+            {% if user_dispname %}
+            <form method="post" action="/mainpage" style="float:right">
+                Logged in as {{ user_dispname }} <input type="submit" name="logout" value="logout">
+            </form>
+            <br /><hr />
+            {% endif %}
             {% if displayconcept %}
             {% autoescape false %}
             {{ displayconcept.concept }}
@@ -41,14 +47,13 @@
             <br>
             <b>Comments are:</b><br>
             {% if posts %}
-            <ul style="list-style:none;">
-                {% for post in posts %}
-                <li style="background-color:mediumturquoise;border-radius:3%;margin-bottom:10px;">
-                    <b>{{ post[1] }} posted on {{ post[0].split('.')[0] }}:</b>
-                    <div class="post">{{ post[2][0] }}</div>
-                </li>
-                {% endfor %}
-            </ul>
+            {% for post in posts %}
+            <div class="posts" style="background-color:Highlight;border-radius:2.5%;">
+                <b>{{ post.user }} posted on {{ post.posted }}:</b>
+                <hr />
+                <div class="post">{{ post.post }}</div>
+            </div>
+            {% endfor %}
             {% endif %}
             {% else %}
             <form method="post" class="addcontent">
@@ -65,15 +70,20 @@
             {% endif %}
         </div>
         <div class="application">
+            {% if not user_dispname and home %}
+            <div style="margin: 1% 0% 1% 0%;background-color:#f1f1f1;color:black;border-radius:1%;padding-bottom:10px;">
+                {% include "loginform.html" %}
+            </div>
+            {% elif user_dispname %}
             <form action="/mainpage" method="post">
                 <b>Comments</b>
                 <textarea type="text" name="comment" id="post" placeholder="Write your Valuable feedback" maxlength="10000"></textarea>
-                <input type="text" name="username" placeholder="Please type your name">&emsp;
                 <input type="submit" name="post" value="post">&emsp;
-                {% if error %}
-                <b style="color:red;">Please enter your name</b>
+                {% if posterror %}
+                {{ posterror }}
                 {% endif %}
             </form>
+            {% endif %}
             <div style="border-radius:5px;border: 1px solid #000;padding:10px;margin-bottom:10px;margin-top:10px;max-height:70%;overflow:auto;">
                 {% if not home %}
                 {% block content %}

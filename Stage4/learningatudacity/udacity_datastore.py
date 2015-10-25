@@ -1,4 +1,4 @@
-﻿from crypto import *
+﻿from crypto import Crypto
 from google.appengine.ext import ndb
 from google.appengine.ext import db
 
@@ -39,5 +39,5 @@ class Users(ndb.Model):
     @classmethod
     def login(cls, usrname, pwd):
         usr = cls.get_by_username(usrname)
-        if usr and decrypto(pwd, usr.password):
+        if usr and Crypto.decrypto(pwd, usr.password):
             return usr
