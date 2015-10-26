@@ -32,6 +32,7 @@ while lastconcept:
     else:
         break
 
+logging.debug("change")
 # This will help read the entity with no parent in Concepts kind
 if lastconcept and not areas:
     areas.insert(0, lastconcept)
@@ -53,14 +54,7 @@ class Handler(webapp2.RequestHandler):
     def render_str(self, template, **params):
         """renders template with provided params"""
         t = jinja_env.get_template(template)
-        if self.__class__ not in [Blog] + Blog.__subclasses__():
-            params['areas'] = areas
-            params['posts'] = userposts
-            params['user_dispname'] = self.get_current_user()
-            logging.debug(params['user_dispname'])
-            params['templates'] = self.get_templates()
-        if self.__class__ is MainPage:
-            params['home'] = True
+        params = self.read_params(**params)
         return t.render(params)
 
     def render(self, template, **kw):
@@ -82,6 +76,23 @@ class Handler(webapp2.RequestHandler):
         else:
             return None
 
+    def read_params(self, **params):
+        """
+        Reading all params on the fly
+        """
+        if self.__class__ not in [Blog] + Blog.__subclasses__():
+            params['areas'] = areas
+            params['posts'] = userposts
+            params['user_dispname'] = self.get_current_user()
+            logging.debug(params['user_dispname'])
+            params['templates'] = self.get_templates()
+        if self.__class__ is MainPage:
+            params['home'] = True
+        if self.request.get("getmetopic") == "Fetch" and self.request.get("topic"):
+            concept_by_title = Concepts.query(Concepts.title == self.request.get("topic")).get()
+            params['displayconcept'] = concept_by_title
+        return params
+
 class MainPage(Handler):
     """
     Inherited class of Handler class, which is inturn webpage handler for mainpage
@@ -91,10 +102,7 @@ class MainPage(Handler):
         Renders mainpage template to screen
         Also handles few forms with get methods on main page
         """
-        if self.request.get("getmetopic") == "Fetch" and self.request.get("topic"):
-            concept_by_title = Concepts.query(Concepts.title == self.request.get("topic")).get()
-            self.render("mainpage.html", displayconcept = concept_by_title)
-        elif self.request.get("surpriseme") == "true" and areas:
+        if self.request.get("surpriseme") == "true" and areas:
             self.render("mainpage.html", displayconcept = random.choice(areas))
         else:
             self.render("mainpage.html")

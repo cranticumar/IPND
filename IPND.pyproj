@@ -24,6 +24,8 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="animation.css" />
+    <Content Include="README.md" />
     <Content Include="Stage0\htmlelement.jpg" />
     <Content Include="Stage0\LearningatUdacity.html" />
     <Content Include="Stage0\style.css" />
@@ -48,8 +50,9 @@
     <Content Include="Stage3\Python\support_files\turtle.png" />
     <Content Include="Stage3\Python\support_files\turtle_flower.png" />
     <Content Include="Stage4\learningatudacity\app.yaml" />
-    <Content Include="Stage4\learningatudacity\css\animation.css" />
     <Content Include="Stage4\learningatudacity\media\htmlelement.jpg" />
+    <Content Include="Stage4\learningatudacity\media\Kranthi.jpg" />
+    <Content Include="Stage4\learningatudacity\media\oop.jpg" />
     <Content Include="Stage4\learningatudacity\media\surpriseme.jpg" />
     <Content Include="Stage4\learningatudacity\templates\blog.html" />
     <Content Include="Stage4\learningatudacity\templates\loginform.html" />

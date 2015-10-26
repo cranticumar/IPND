@@ -19,30 +19,42 @@
             {% autoescape false %}
             {{ displayconcept.concept }}
             {% endautoescape %}
-            {% endif %}
-            {% if not contentadd %}
-            <div id="content-slider">
-                <div id="slider">
-                    <div id="mask">
+            {% else %}
+            <div class="concept">
+                <h3>About me</h3>
+                <div style="display:inline-flex">
+                    <div style="width:20%">
+                        <img src="media/Kranthi.jpg" alt="Kranthi" style="border-radius:50%;max-width:90%;">
+                    </div>
+                    <div style="width: 70%;text-align:justify">
+                        I am Kranthi from INDIA. I am attending Introduction to Programming Nanodegree. I am gaining a lot of knowledge. I am already starting to realize where I am going to be at the end of this course. There is lot of perspective change in me due to IPND. It is good to be here. Way to go!!!
+                        <div style="text-align:center;font-weight:bolder;font-size:large">Things to remember at any course</div>
+                        <hr>
                         <ul>
-                            {% for area in areas %}
-                            {% autoescape false %}
-                            <li id="id{{ areas.index(area) }}" style="-moz-animation:cycle{{ areas.index(area) }} 60s linear infinite;-webkit-animation:cycle{{ areas.index(area) }} 60s linear infinite;">
-                                {{ area.concept }}
-                                <div class="abt">
-                                    <h1>{{ area.title }}</h1>
-                                </div>
-                            </li>
-                            {% endautoescape %}
-                            {% endfor %}
+                            <li>Do not get disappointed with hurdle, treat every hurdle as learning opportunity</li>
+                            <li>Do not give up</li>
+                            <li>Perseverance is the key</li>
+                            <li>Keep Learning</li>
+                            <li>Get and contribute to the forums - seek and provide help to learn more</li>
                         </ul>
                     </div>
-                    <div class="progress-bar"></div>
                 </div>
             </div>
+            {% endif %}
+            {% if not contentadd %}
+            <form style="text-align:center;background-color:#f1f1f1;margin:0% 30% 0% 30%;border-radius:3%;padding:1%">
+                Want to read a specific Topic:
+                <select name="topic">
+                    {% for area in areas %}
+                    <option value="" hidden selected disabled></option>
+                    <option value="{{ area.title }}">{{ area.title }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="getmetopic" value="Fetch">
+            </form>
             <br>
             <div style="text-transform:capitalize;text-align:center;font-weight:bolder;font-size:20px">
-                <marquee behavior="scroll" direction="left">Hover over to pause the Slideshow</marquee>
+                <marquee behavior="scroll" direction="left">Fetch any topic to read</marquee>
             </div>
             <br>
             <b>Comments are:</b><br>
@@ -90,19 +102,9 @@
                 {% endblock %}
                 {% else %}
                 <form>
-                    Want to read a specific Topic:
-                    <select name="topic">
-                        {% for area in areas %}
-                        <option value="" hidden selected disabled></option>
-                        <option value="{{ area.title }}">{{ area.title }}</option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" name="getmetopic" value="Fetch">
-                </form>
-                <form>
                     <div style="text-align:center;padding:50px;">
                         <button type="submit" name="surpriseme" value="true" style="background-color:transparent;border:none;cursor:pointer">
-                            <img src="/media/surpriseme1.jpg" alt="surpriseme!!!">
+                            <img src="/media/surpriseme.jpg" alt="surpriseme!!!">
                         </button>
                     </div>
                 </form>

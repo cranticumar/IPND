@@ -1,6 +1,4 @@
-﻿@import url("animation.css") screen;
-
-* {
+﻿* {
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    -ms-box-sizing: border-box;
@@ -11,6 +9,7 @@ body {
    padding-left: 40px;
    padding-right: 40px;
    background-color: #c1bdba;
+   font-family: Verdana, Geneva, sans-serif;
 }
 
 nav {
@@ -87,10 +86,8 @@ nav ul li a {
 .concept {
     background-color: #fff;
     margin-bottom: 15px;
-    /*border: 1px solid #e1e1e1;*/
     padding: 1.1rem;
-    font-family: Roboto, sans-serif;
-    font-size: 14px;
+    font-size: 12.5px;
     line-height: 1.625;
     max-width: 100%;
 }
@@ -120,7 +117,6 @@ h3 {
     padding-right: 10px;
     padding-top: 12px;
     padding-bottom: 5px;
-    font-family: 'open sans', arial, sans-serif;
     font-size: medium;
 }
 
@@ -132,7 +128,6 @@ h3 {
 .addcontent input[type=text] {
     width: 90%;
     font-size: large;
-    font-family: Tahoma;
     text-align: center;
 }
 
@@ -153,6 +148,7 @@ h4 {
 
 .centeredimage {
     text-align: center;
+    max-width: 100%;
 }
 
 .specialwords {
@@ -232,90 +228,4 @@ input[type=button], input[type=submit] {
     cursor: pointer;
     font-size: 14px;
     font-family: Verdana, Geneva, sans-serif;
-}
-
-/* SLIDER */
-#content-slider {
-    width:100%;
-    height:600px;
-    margin:10px auto 0;
-}
-
-#slider {
-    background:#fff;
-    border:5px solid #eaeaea;
-    box-shadow:1px 1px 5px rgba(0,0,0,0.7);
-    height:605px;
-    width:100%;
-    margin:40px auto 0;
-    overflow:visible;
-    position:relative;
-}
-
-#mask {
-    overflow:hidden;
-    height:600px;
-}
-
-#slider ul {
-    margin:0;
-    padding:0;
-    position:relative;
-}
-
-#slider li {
-    height:600px;
-    width:100%;
-    position:absolute;
-    top:-325px;
-    list-style:none;
-    overflow: auto;
-}
-
-#slider .abt {
-    background:rgba(0,0,0,0.7);
-    width:300px;
-    height:60px;
-    position:relative;
-    bottom:75px;
-    left:-320px;
-    -moz-transition:all 0.3s ease-in-out;
-    -webkit-transition:all 0.3s ease-in-out;
-}
-
-#slider .abt h1 {
-    color:#fff;
-    font-size:24px;
-    font-weight:300;
-    line-height:60px;
-    padding:0 0 0 20px;
-}
-
-#slider li#id0:hover .abt, 
-#slider li#id1:hover .abt, 
-#slider li#id3:hover .abt, 
-#slider li#id4:hover .abt, 
-#slider li#id5:hover .abt, 
-#slider li#id6:hover .abt, 
-#slider li#id7:hover .abt, 
-#slider li#id8:hover .abt, 
-#slider li#id9:hover .abt {
-    left:0px;
-}
-
-#slider:hover li, 
-#slider:hover .progress-bar {
-    -moz-animation-play-state:paused;
-    -webkit-animation-play-state:paused;
-}
-
-/* PROGRESS BAR */
-.progress-bar { 
-    position:relative;
-    top:-5px;
-    width:100%;
-    height:5px;
-    background:#000;
-    -moz-animation:fullexpand 60s ease-out infinite;
-    -webkit-animation:fullexpand 60s ease-out infinite;
 }
