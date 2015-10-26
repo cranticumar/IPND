@@ -15,11 +15,16 @@ present_month = present.month
 present_day = present.day
 
 def validate_signupform(**kw):
+    """
+    Validates sign up form while registration for correctness of the details
+    """
     errors = dict()
     password_elist = list()
     if not (kw.get("uname") and re.match("^[a-z0-9_\.]{5,20}$", kw.get("uname"))):
         errors["error_username"] = "That is an invalid username"
     elif Users.get_by_username(kw.get("uname")):
+        # If username (each username has its own encrypted version) already exists in database,
+        # this sets an error
         errors["error_username"] = "User already exists"
 
     if not (kw.get("disname") and re.match("^[a-zA-Z]{3,20}$", kw.get("disname"))):
@@ -47,13 +52,22 @@ def validate_signupform(**kw):
     return errors
 
 def validate_loginform(**kw):
+    """
+    Validates Login form and sets errors in case of login failure
+    """
     errors = dict()
     usr = Users.login(kw.get("uname"), kw.get("pwd"))
     if usr is None:
+        # If username is not found in the datastore, sets an error for login
         errors["error_login"] = "Login failed"
     return errors
 
 def rot13cipher(text):
+    """
+    ROT13 - advances character by 13 places in cyclic manner. Technique used is
+    add 13 to current letter index and get reminder beyond 26 to traverse in
+    cyclic manner.
+    """
     content = list(text)
     smallalpha = list(string.ascii_lowercase)
     alpha = list(string.ascii_uppercase)
@@ -95,6 +109,8 @@ def _is_leap_year(year):
     """Check if provided year is a leap year or not"""
     if year % 4 == 0:
         if year % 100 == 0:
+            # though divisible y 4, only every 400th year is a leap year
+            # http://science.howstuffworks.com/science-vs-myth/everyday-myths/question50.htm
             return True if year % 400 == 0 else False
         return True
     return False
