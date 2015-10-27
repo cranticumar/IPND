@@ -8,14 +8,14 @@ class Crypto():
     A custom class for encryption and description using hmac and 
     '''
     @classmethod
-    def make_salt(cls):
+    def make_salt(cls, salt_len = 5):
         '''
         In cryptography, a salt is random data that is used as an additional input
         to a one-way function that hashes a password or passphrase. The primary 
         function of salts is to defend against dictionary attacks versus a list of
         password hashes and against pre-computed rainbow table attacks
         '''
-        return ''.join(random.sample(list(string.ascii_letters), 5))
+        return ''.join(random.sample(list(string.ascii_letters), salt_len))
 
     @classmethod
     def encrypto(cls, word, salt=None):

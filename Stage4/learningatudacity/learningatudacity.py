@@ -4,6 +4,7 @@ import os
 import re
 import random
 import logging
+import time
 from crypto import Crypto
 from udacity_datastore import *
 from data_validation import *
@@ -231,6 +232,8 @@ class SignUp(Handler):
     operations.
     This will also set a cookies which will help in identifying user.
     """
+    # CONSTANT Time to sleep for datastore to get update, immediate redirection is causing problems at times
+    DATASTORE_LATENCY = 1
     def get(self):
         """
         Checks if user is logged in.
@@ -274,6 +277,8 @@ class SignUp(Handler):
                 Users.register_newuser(disname = self.disname, usrname = self.encrypted_uname,
                                        pwd = Crypto.encrypto(self.pwd), email = self.email)
                 self.response.headers.add_header("Set-Cookie", "user_id = {username}".format(username = self.encrypted_uname))
+                # providing 1 seconds for datastore to get updated
+                time.sleep(DATASTORE_LATENCY)
                 self.redirect("/mainpage")
         elif self.request.get("login"):
             # validates if user login and password are correct, if authenticated, sets cookie

@@ -2,6 +2,7 @@
 import string
 import logging
 import re
+from crypto import Crypto
 from udacity_datastore import *
 
 # List of Months in a year
@@ -22,7 +23,7 @@ def validate_signupform(**kw):
     password_elist = list()
     if not (kw.get("uname") and re.match("^[a-z0-9_\.]{5,20}$", kw.get("uname"))):
         errors["error_username"] = "That is an invalid username"
-    elif Users.get_by_username(kw.get("uname")):
+    elif Users.get_by_username(Crypto.encrypto_wo_salt(kw.get("uname"))):
         # If username (each username has its own encrypted version) already exists in database,
         # this sets an error
         errors["error_username"] = "User already exists"
@@ -69,14 +70,16 @@ def rot13cipher(text):
     cyclic manner.
     """
     content = list(text)
+    # as this is ROT13 cipher, advance_by variable is used for advancing the index
+    advance_by = 13
     smallalpha = list(string.ascii_lowercase)
     alpha = list(string.ascii_uppercase)
     ciphered_text = ''
     for letter in content:
         if letter in smallalpha:
-            ciphered_text += smallalpha[(smallalpha.index(letter) + 13) % len(smallalpha)]
+            ciphered_text += smallalpha[(smallalpha.index(letter) + advance_by) % len(smallalpha)]
         elif letter in alpha:
-            ciphered_text += alpha[(alpha.index(letter) + 13) % len(alpha)]
+            ciphered_text += alpha[(alpha.index(letter) + advance_by) % len(alpha)]
         else:
             ciphered_text += letter
     return ciphered_text
@@ -119,10 +122,12 @@ def _validate_day(day, month, year):
     """Validate day as per the year and the month"""
     if day.isdigit():
         day = int(day)
-        if month.lower() == "february":
-            if is_leap_year(year) and day <= (days_in_month[month.lower()] + 1):
-                return day
-        elif day <= days_in_month[month.lower()]:
+        # usually there is no leap day, based on february and leap year, an additional day is set
+        leap_day = 0
+        if month.lower() == "february" and _is_leap_year(year):
+            leap_day = 1
+
+        if day <= days_in_month[month.lower()] + leap_day:
             return day
 
 def _check_for_future_date(year, month, day):
@@ -130,9 +135,11 @@ def _check_for_future_date(year, month, day):
     if year > present_year:
         return False
     elif year == present_year:
-        if months.index(month.lower()) + 1 > present_month:
+        # in list, indices starts with 0, so as to match with month number, advance it by 1
+        index_to_position = 1
+        if months.index(month.lower()) + index_to_position > present_month:
             return False
-        elif months.index(month.lower()) + 1 == present_month:
+        elif months.index(month.lower()) + index_to_position == present_month:
             print day
             if day <= present_day:
                 return True
