@@ -1,0 +1,244 @@
+﻿* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+body {
+   padding-left: 40px;
+   padding-right: 40px;
+   background-color: #c1bdba;
+   font-family: Verdana, Geneva, sans-serif;
+}
+
+nav {
+    width: 12%;
+    height: 100%;
+    top: 0px;
+    left:0px;
+    position:fixed;
+    background-color: #13232f;
+    color: #000000;
+    font-family: Tahoma;
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    height: 50px;
+    width: 100%;
+    font-size: 30px;
+    background-color: #1ab188;
+    color: white;
+    margin-bottom: 10px;
+}
+
+nav ul li:hover {
+    background-color: #179b77;
+}
+
+nav ul li active {
+    font-size: 50px;
+}
+
+nav ul li a {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    vertical-align: central;
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 12%;
+    margin-right: 1%;
+    top: 0px;
+}
+
+.read {
+    order: 0;
+    width: 70%;
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+}
+
+.application {
+    order: 1;
+    width: 27%;
+    background-color: #CCCCFF;
+    padding: 20px;
+    position:fixed;
+    color: #000000;
+    border-radius: 2%;
+    font-family: Tahoma;
+    height: 95%;
+}
+
+.concept {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 1.1rem;
+    font-size: 12.5px;
+    line-height: 1.625;
+    max-width: 100%;
+}
+
+.concept p {
+    text-align: left;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+}
+
+textarea#post {
+    width: 100%;
+    height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+    font-family: Tahoma;
+    font-size: 14px;
+    line-height: 1.625;
+    border-radius:4px;
+}
+
+h3 {
+    background-color: rgb(241, 241, 241);
+    height: 40px;
+    text-align: center;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+    font-size: medium;
+}
+
+.addcontent {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.addcontent input[type=text] {
+    width: 90%;
+    font-size: large;
+    text-align: center;
+}
+
+.addcontent textarea {
+    width: 90%;
+    height: 500px;
+    font-size: medium;
+    font-family: Tahoma;
+}
+
+h4 {
+   color : green;
+   font-weight: bold;
+   text-align: left;
+   margin-bottom: 10px;
+   margin-top: 10px;
+}
+
+.centeredimage {
+    text-align: center;
+    max-width: 100%;
+}
+
+.specialwords {
+   color: #0c65a5;
+   font-style: italic;
+   font-weight: bold;
+}
+
+form {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.posts {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    padding:10px;
+}
+
+table td,th{
+    border: 1px solid green;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+th {
+    background-color: #1C4032;
+    color: white;
+    text-align: center;
+}
+
+td {
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.userforms table td {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    width: 220px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.userforms td.field {
+    width: 450px;
+}
+
+.userforms table td {
+    border: none;
+}
+
+.userforms {
+    border:none;
+    margin:5%;
+}
+
+input[type=button], input[type=submit] {
+    background: #4b8df9;
+    padding: 5px 10px 6px;
+    color: #fbf7f7;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px #999;
+    -webkit-box-shadow: 0 1px 3px #999;
+    box-shadow: 0 1px 3px #999;
+    text-shadow: 0 -1px 1px #222;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#udacity {
+    font-size: 14px;
+    font-family: Verdana, Geneva, sans-serif;
+    background-image: url(/media/bg.jpg);
+    padding: 10px 0px 10px 10px;
+    color: white;
+    border-radius: 2.5%;
+}
+
+#udacity a{
+    color: white;
+}

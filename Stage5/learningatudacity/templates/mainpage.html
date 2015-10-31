@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    {% include "nav.html" %}
+    <div class="content">
+        <div class="read">
+            {% if user_dispname %}
+            <form method="post" action="/mainpage" style="float:right">
+                Logged in as {{ user_dispname }} <input type="submit" name="logout" value="logout">
+            </form>
+            <br /><hr />
+            {% endif %}
+            {% if displayconcept %}
+            {% autoescape false %}
+            {{ displayconcept.concept }}
+            {% endautoescape %}
+            {% elif home %}
+            <div class="concept">
+                <h3>About me</h3>
+                <div style="display:inline-flex">
+                    <div style="width:20%">
+                        <img src="media/Kranthi.jpg" alt="Kranthi" style="border-radius:50%;max-width:90%;">
+                    </div>
+                    <div style="width: 70%;text-align:justify">
+                        I am Kranthi from INDIA. I am attending Introduction to Programming Nanodegree. I am gaining a lot of knowledge. I am already starting to realize where I am going to be at the end of this course. There is lot of perspective change in me due to IPND. It is good to be here. Way to go!!!
+                        <div style="text-align:center;font-weight:bolder;font-size:large">Things to remember at any course</div>
+                        <hr>
+                        <ul>
+                            <li>Do not get disappointed with hurdle, treat every hurdle as learning opportunity</li>
+                            <li>Do not give up</li>
+                            <li>Perseverance is the key</li>
+                            <li>Keep Learning</li>
+                            <li>Get and contribute to the forums - seek and provide help to learn more</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if not contentadd %}
+            <form style="text-align:center;background-color:#f1f1f1;margin:0% 30% 0% 30%;border-radius:3%;padding:1%">
+                Want to read a specific Topic:
+                <select name="topic">
+                    {% for area in areas %}
+                    <option value="" hidden selected disabled></option>
+                    <option value="{{ area.title }}">{{ area.title }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="getmetopic" value="Fetch">
+            </form>
+            <br>
+            <div style="text-transform:capitalize;text-align:center;font-weight:bolder;font-size:20px">
+                <marquee behavior="scroll" direction="left">Fetch any topic to read</marquee>
+            </div>
+            <br>
+            {% include "udacity.html" %}
+            <b>Comments are:</b><br>
+            {% if posts %}
+            {% for post in posts %}
+            <div class="posts" style="background-color:Highlight;border-radius:2.5%;">
+                <b>{{ post.user }} posted on {{ post.posted }}:</b>
+                <hr />
+                <div class="post">{{ post.post }}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% else %}
+            <form method="post" class="addcontent">
+                <input type="text" name="title" placeholder="Title of the Concept"><br><br>
+                <textarea type="text" maxlength="1000000000" name="concept" placeholder="Explain the Concept"></textarea><br><br>
+                {% if error %}
+                <b style="color:red">{{ error }}</b>
+                {% endif %}
+                &emsp;<input type="submit" value="Add Content to Database">
+            </form>
+            {% endif %}
+        </div>
+        <div class="application">
+            {% if not user_dispname and home %}
+            <div style="margin: 1% 0% 1% 0%;background-color:#f1f1f1;color:black;border-radius:1%;padding-bottom:10px;">
+                {% include "loginform.html" %}
+            </div>
+            {% elif user_dispname %}
+            <form action="/mainpage" method="post">
+                <b>Comments</b>
+                <textarea type="text" name="comment" id="post" placeholder="Write your Valuable feedback" maxlength="10000"></textarea>
+                <input type="submit" name="post" value="post">&emsp;
+                {% if posterror %}
+                {{ posterror }}
+                {% endif %}
+            </form>
+            {% endif %}
+            <div style="border-radius:5px;border: 1px solid #000;padding:10px;margin-bottom:10px;margin-top:10px;max-height:70%;overflow:auto;">
+                {% if not home %}
+                {% block content %}
+                {% endblock %}
+                {% else %}
+                <form>
+                    <div style="text-align:center;padding:50px;">
+                        <button type="submit" name="surpriseme" value="true" style="background-color:transparent;border:none;cursor:pointer">
+                            <img src="/media/surpriseme.jpg" alt="surpriseme!!!">
+                        </button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

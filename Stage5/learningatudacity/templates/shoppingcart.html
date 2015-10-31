@@ -1,0 +1,22 @@
+﻿{% extends "mainpage.html" %}
+
+{% block content %}
+<form>
+    <input type="text" name="product" value="" placeholder="Type a Product Name">
+    <button>Add</button>
+    {% if products %}
+    {% for item in products %}
+    <input type="hidden" name="product" value="{{ item }}">
+    {% endfor %}
+
+    <h2>Your Cart</h2>
+    <ul>
+        {% for item in products %}
+        <li>
+            {{ item }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+{% endblock %}

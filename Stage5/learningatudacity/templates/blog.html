@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Blog</title>
+</head>
+<body style="max-width:70%;align-content:center;padding-left:15%;padding-right:15%;background-color:rgb(241, 241, 241)">
+    <h1 style="text-align:center;"><a href="/blog" style="text-decoration:none;cursor:pointer;color:#000;">Blog</a></h1>
+    <hr>
+    {% block sub %}
+    {% endblock %}
+    {% if blogposts %}
+    {% for post in blogposts %}
+    <div style="background-color:Highlight;border-radius:2.5%;">
+        <div style="padding-top:10px">
+            <span style="float:left;padding-left:10px">
+                {{ post.title }}
+            </span>
+            <span style="float:right;padding-right:10px">
+                {{ post.posted_on}}
+            </span>
+        </div>
+        <br>
+        <hr>
+        <div style="padding-right:10px;padding-left:10px">
+            {{ post.blogpost }}
+        </div>
+        <br>
+    </div>
+    <br>
+    <br>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

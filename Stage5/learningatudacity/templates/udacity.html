@@ -1,0 +1,13 @@
+﻿{% if courses %}
+<div id="udacity">
+    Check out the Udacity Courses: <select name="coursee" onchange="toggleCourse(this.value)">
+        <option value="" hidden selected disabled></option>
+        {% for title, course in courses.items() %}
+        <option value="{{ course }}">{{ title }}</option>
+        {% endfor %}
+    </select>
+    <div id="course">
+    </div>
+</div>
+{% endif %}
+<script src="js/coursedetails.js"></script>

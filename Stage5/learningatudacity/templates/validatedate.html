@@ -1,0 +1,20 @@
+﻿{% extends "mainpage.html" %}
+
+{% block content %}
+<form>
+    <b>Month</b>:<br>
+    <input type="text" name="month" placeholder="e.g. January" value={{ month }}><br><br>
+    <b>Day</b>:<br>
+    <input name="day" placeholder="DD" value={{ day }}><br><br>
+    <b>Year</b>:<br>
+    <input name="year" placeholder="YYYY" value={{ year }}><br><br>
+    {% if message %}
+    {% if not col %}
+    <div style="color: black">{{ message }}</div><br>
+    {% else %}
+    <div style="color: {{col}}">{{ message }}</div><br>
+    {% endif %}
+    {% endif %}
+    <input type="submit">
+</form>
+{% endblock %}

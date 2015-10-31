@@ -1,0 +1,11 @@
+﻿<nav>
+    <ul>
+        {% for name in templates %}
+        <li>
+            <a href="{{ name.lower() }}">
+                {{ name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -24,7 +24,7 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="animation.css" />
+    <Content Include=".gitignore" />
     <Content Include="README.md" />
     <Content Include="Stage0\htmlelement.jpg" />
     <Content Include="Stage0\LearningatUdacity.html" />
@@ -69,11 +69,37 @@
     <Content Include="Stage4\learn.html" />
     <Content Include="Stage4\learningatudacity\templates\rot13cipher.html" />
     <Content Include="Stage4\learningatudacity\templates\welcome.html" />
+    <Content Include="Stage5\learningatudacity\app.yaml" />
+    <Content Include="Stage5\learningatudacity\crypto.pyc" />
+    <Content Include="Stage5\learningatudacity\css\style.css" />
+    <Content Include="Stage5\learningatudacity\data_validation.pyc" />
+    <Content Include="Stage5\learningatudacity\js\jquery-1.11.3.min.js" />
+    <Content Include="Stage5\learningatudacity\js\jquery-2.1.4.min.js" />
+    <Content Include="Stage5\learningatudacity\js\resumebuilder.js" />
+    <Content Include="Stage5\learningatudacity\js\coursedetails.js" />
+    <Content Include="Stage5\learningatudacity\learningatudacity.pyc" />
+    <Content Include="Stage5\learningatudacity\media\htmlelement.jpg" />
+    <Content Include="Stage5\learningatudacity\media\Kranthi.jpg" />
+    <Content Include="Stage5\learningatudacity\media\oop.jpg" />
+    <Content Include="Stage5\learningatudacity\media\surpriseme.jpg" />
+    <Content Include="Stage5\learningatudacity\templates\addcontent.html" />
+    <Content Include="Stage5\learningatudacity\templates\blog.html" />
+    <Content Include="Stage5\learningatudacity\templates\fizzbuzz.html" />
+    <Content Include="Stage5\learningatudacity\templates\loginform.html" />
+    <Content Include="Stage5\learningatudacity\templates\mainpage.html" />
+    <Content Include="Stage5\learningatudacity\templates\nav.html" />
+    <Content Include="Stage5\learningatudacity\templates\newpost.html" />
+    <Content Include="Stage5\learningatudacity\templates\rot13cipher.html" />
+    <Content Include="Stage5\learningatudacity\templates\shoppingcart.html" />
+    <Content Include="Stage5\learningatudacity\templates\signup.html" />
+    <Content Include="Stage5\learningatudacity\templates\test.html" />
+    <Content Include="Stage5\learningatudacity\templates\udacity.html" />
+    <Content Include="Stage5\learningatudacity\templates\validatedate.html" />
+    <Content Include="Stage5\learningatudacity\templates\welcome.html" />
+    <Content Include="Stage5\learningatudacity\template_creation.pyc" />
+    <Content Include="Stage5\learningatudacity\udacity_datastore.pyc" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="future_additions.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Stage2\html_generator.py" />
     <Compile Include="Project_Euler\project_euler_9.py" />
     <Compile Include="Project_Euler\project_euler_8_largest_product_in_series.py" />
@@ -138,8 +164,17 @@
     <Compile Include="Stage4\learningatudacity\udacity_datastore.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Stage5\learningatudacity\crypto.py" />
+    <Compile Include="Stage5\learningatudacity\data_validation.py" />
+    <Compile Include="Stage5\learningatudacity\learningatudacity.py" />
+    <Compile Include="Stage5\learningatudacity\template_creation.py" />
+    <Compile Include="Stage5\learningatudacity\thirdpartysite_apis.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Stage5\learningatudacity\udacity_datastore.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Stage5\" />
     <Folder Include="Stage4\" />
     <Folder Include="Stage0" />
     <Folder Include="Stage1" />
@@ -167,6 +202,11 @@
     <Folder Include="Stage4\learningatudacity\css\" />
     <Folder Include="Stage4\learningatudacity\templates\" />
     <Folder Include="Stage4\learningatudacity\media\" />
+    <Folder Include="Stage5\learningatudacity\" />
+    <Folder Include="Stage5\learningatudacity\css\" />
+    <Folder Include="Stage5\learningatudacity\js\" />
+    <Folder Include="Stage5\learningatudacity\media\" />
+    <Folder Include="Stage5\learningatudacity\templates\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />

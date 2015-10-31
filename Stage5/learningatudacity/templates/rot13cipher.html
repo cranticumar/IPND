@@ -1,0 +1,7 @@
+﻿{% extends "mainpage.html" %}
+{% block content %}
+<form method="post" action="/rot13cipher">
+    <textarea name="text">{{ val }}</textarea>
+    <input type="submit" value="Cipher">
+</form>
+{% endblock %}
